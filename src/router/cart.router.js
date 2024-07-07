@@ -16,13 +16,6 @@ try {
   }
 }
 
-let products = [];
-try {
-  products = JSON.parse(fs.readFileSync("./json/products.json"), "utf8"); //utf8 es la encriptacion
-} catch (error) {
-  console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
-}
-
 console.log(
   `Archivo carts.json cargado correctamente, cantidad de carritos ${carts.length}`
 );
@@ -58,6 +51,8 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:cid/product/:pid", (req, res) => {
+  let products = JSON.parse(fs.readFileSync("./json/products.json"), "utf8"); //utf8 es la encriptacion
+
   let idCarrito = parseInt(req.params.cid);
   let idProducto = parseInt(req.params.pid);
 
@@ -68,25 +63,39 @@ router.put("/:cid/product/:pid", (req, res) => {
     );
     if (productoAAgregar) {
       const index = carts.findIndex((carrito) => carrito.id === idCarrito);
-      const productoExitenteIndex = carts[index].products.findIndex(
+      let productoCartIndex = carts[index].products.findIndex(
         (product) => product.id === idProducto
       );
-      if (productoExitenteIndex != -1) {
-        carts[index].products[productoExitenteIndex].quantity++;
+      const indexP = products.findIndex((product) => product.id === idProducto);
+      let existe = true;
+      if (productoCartIndex != -1 && productoAAgregar.status) {
+        carts[index].products[productoCartIndex].quantity++;
+        products[indexP].stock--;
+        products[indexP].stock === 0 && (products[indexP].status = false);
+        escribirStock(products);
+      } else if (!productoAAgregar.status) {
+        existe = false;
+        res.status(404).json({ msg: "No hay más stock de este producto" });
       } else {
         carts[index].products.push({
           id: productoAAgregar.id,
           quantity: 1,
         });
+        products[indexP].stock--;
+        products[indexP].stock === 0 && (products[indexP].status = false);
+        escribirStock(products);
+        productoCartIndex = carts[index].products.findIndex(
+          (product) => product.id === idProducto
+        );
       }
-      const indexP = carts[index].products.findIndex(
-        (product) => product.id === idProducto
-      );
-      escribirArchivo(carts);
-      const objetoCart = carts[index];
-      res.status(202).json({
-        msg: `El producto ${idProducto} ha sido agregado correctamente al carrito ${idCarrito}, la cantidad actual es ${carts[index].products[indexP].quantity}`,objetoCart
-      });
+      if (existe) {
+        escribirArchivo(carts);
+        const objetoCart = carts[index];
+        res.status(202).json({
+          msg: `El producto ${idProducto} ha sido agregado correctamente al carrito ${idCarrito}, la cantidad actual es ${carts[index].products[productoCartIndex].quantity}`,
+          objetoCart,
+        });
+      }
     } else {
       res.status(404).json({
         msg: `El producto con id ${idProducto} no existe y no puede agregarse al carrito con id ${idCarrito}.`,

@@ -15,12 +15,9 @@ try {
   products = JSON.parse(fs.readFileSync("./json/products.json"), "utf8"); //utf8 es la encriptacion
 } catch (error) {
   console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
-  try {
     fs.writeFileSync("./json/products.json", JSON.stringify(products));
     console.log("Archivo creado correctamente");
-  } catch (error) {
-    console.log(error, "Error al crear archivo");
-  }
+
 }
 
 console.log(
