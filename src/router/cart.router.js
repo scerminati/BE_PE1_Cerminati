@@ -83,8 +83,9 @@ router.put("/:cid/product/:pid", (req, res) => {
         (product) => product.id === idProducto
       );
       escribirArchivo(carts);
+      const objetoCart = carts[index];
       res.status(202).json({
-        msg: `El producto ${idProducto} ha sido agregado correctamente al carrito ${idCarrito}, la cantidad actual es ${carts[index].products[indexP].quantity}`,
+        msg: `El producto ${idProducto} ha sido agregado correctamente al carrito ${idCarrito}, la cantidad actual es ${carts[index].products[indexP].quantity}`,objetoCart
       });
     } else {
       res.status(404).json({

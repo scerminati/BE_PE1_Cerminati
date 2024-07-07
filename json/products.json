@@ -1,5 +1,27 @@
 [
   {
+    "id": 1,
+    "title": "Gloomhaven",
+    "description": "Gloomhaven es un juego de combate táctico con inspiración europea en un mundo persistente. Los jugadores, como aventureros, colaboran para limpiar mazmorras, mejorar habilidades y explorar en una historia que evoluciona según sus decisiones. El juego utiliza un sistema de cartas innovador para acciones, y los jugadores deben gestionar cuidadosamente sus recursos, ya que perderán cartas permanentemente, pudiendo agotarse si no completan los desafíos a tiempo.",
+    "code": 174430,
+    "price": 159.99,
+    "status": true,
+    "stock": 3,
+    "category": ["Strategy Games", "Thematic Games"],
+    "thumbnail": "../images/174430.webp"
+  },
+  {
+    "id": 2,
+    "title": "Terraforming Mars",
+    "description": "En el siglo XXIV, la humanidad comienza a terraformar el planeta Marte. En el juego Terraforming Mars, interpretas el papel de una de las corporaciones patrocinadas por el Gobierno Mundial en la Tierra, compitiendo por puntos de victoria mientras colaboras en el proceso de terraformación. Adquieres cartas de proyectos únicos para mejorar tu producción de recursos y obtener bonificaciones, equilibrando la compra y la activación de cartas. Compites por ubicaciones estratégicas en el tablero y realizas acciones durante fases de generación, avanzando en la infraestructura humana en el sistema solar. El juego concluye cuando los parámetros globales (temperatura, oxígeno y océano) alcanzan sus objetivos, y el ganador se determina por la Puntuación de Terraformación y otros puntos de victoria acumulados.",
+    "code": 167791,
+    "price": 65.9,
+    "status": true,
+    "stock": 1,
+    "category": ["Strategy Games"],
+    "thumbnail": "../images/167791.webp"
+  },
+  {
     "id": 3,
     "title": "Spirit Island",
     "description": "Spirit Island es un juego cooperativo donde los jugadores encarnan espíritus de la tierra con poderes elementales únicos, trabajando juntos para defender su isla de invasores colonizadores. Cada turno, los jugadores eligen estratégicamente cartas de poder, pagando energía para activar habilidades que varían en velocidad y efectividad. Mientras los espíritus crecen en poder y presencia, los invasores avanzan en la isla, construyendo asentamientos y ciudades. La victoria inicial requiere destruir todas las colonias, pero a medida que aterrorizas a los invasores, la victoria se facilita. Sin embargo, la derrota puede llegar si un espíritu es destruido, la corrupción invade la isla o la baraja de invasores se agota antes de lograr la victoria. Con adversarios variados, cada uno con desafíos únicos, Spirit Island ofrece una experiencia desafiante y temática.",
@@ -7,9 +29,7 @@
     "price": 70.99,
     "status": true,
     "stock": 1,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/162886.webp"
   },
   {
@@ -20,9 +40,7 @@
     "price": 59.79,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/120677.webp"
   },
   {
@@ -33,11 +51,19 @@
     "price": 47.69,
     "status": true,
     "stock": 3,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/266192.webp"
+  },
+  {
+    "id": 6,
+    "title": "Puerto Rico",
+    "description": "En Puerto Rico, los jugadores asumen el papel de gobernadores coloniales compitiendo por puntos de victoria mediante el envío de mercancías a Europa o la construcción de edificios. Cada jugador gestiona su propio tablero con ciudad, plantaciones y recursos, compartiendo barcos y una casa de comercio. Durante cada ronda, los jugadores eligen roles, como Comerciante o Constructor, realizando acciones asociadas, y el jugador que selecciona el rol obtiene un pequeño beneficio. El juego utiliza un mecanismo de orden de fase variable, y los jugadores ganan puntos por edificios, envíos y edificios grandes. Puerto Rico incorpora estrategia y toma de decisiones en un entorno colonial, con expansiones disponibles para agregar variedad al juego.",
+    "code": 3076,
+    "price": 124.93,
+    "status": true,
+    "stock": 2,
+    "category": ["Strategy Games"],
+    "thumbnail": "../images/3076.webp"
   },
   {
     "id": 7,
@@ -47,9 +73,7 @@
     "price": 58.95,
     "status": true,
     "stock": 2,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/31260.webp"
   },
   {
@@ -60,9 +84,7 @@
     "price": 44.95,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/2651.webp"
   },
   {
@@ -73,9 +95,7 @@
     "price": 58.91,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/126163.webp"
   },
   {
@@ -86,10 +106,7 @@
     "price": 14.99,
     "status": true,
     "stock": 3,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/284083.webp"
   },
   {
@@ -100,9 +117,7 @@
     "price": 70.99,
     "status": true,
     "stock": 4,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/35677.webp"
   },
   {
@@ -113,10 +128,7 @@
     "price": 31.99,
     "status": true,
     "stock": 4,
-    "category": [
-      "Abstract Games",
-      "Family Games"
-    ],
+    "category": ["Abstract Games", "Family Games"],
     "thumbnail": "../images/230802.webp"
   },
   {
@@ -127,9 +139,7 @@
     "price": 199.95,
     "status": true,
     "stock": 5,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/125153.webp"
   },
   {
@@ -140,10 +150,7 @@
     "price": 59.99,
     "status": true,
     "stock": 2,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/68448.webp"
   },
   {
@@ -154,9 +161,7 @@
     "price": 49.95,
     "status": true,
     "stock": 2,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/229853.webp"
   },
   {
@@ -167,9 +172,7 @@
     "price": 39.99,
     "status": true,
     "stock": 4,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/244521.webp"
   },
   {
@@ -180,9 +183,7 @@
     "price": 126.95,
     "status": true,
     "stock": 2,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/161533.webp"
   },
   {
@@ -193,9 +194,7 @@
     "price": 124.99,
     "status": true,
     "stock": 4,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/18602.webp"
   },
   {
@@ -206,9 +205,7 @@
     "price": 56.2,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/93.webp"
   },
   {
@@ -219,9 +216,7 @@
     "price": 120,
     "status": true,
     "stock": 5,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/42.webp"
   },
   {
@@ -232,9 +227,7 @@
     "price": 49.95,
     "status": true,
     "stock": 1,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/203993.webp"
   },
   {
@@ -245,10 +238,7 @@
     "price": 31.6,
     "status": true,
     "stock": 4,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/30549.webp"
   },
   {
@@ -259,10 +249,7 @@
     "price": 34.9,
     "status": true,
     "stock": 5,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/281259.webp"
   },
   {
@@ -273,9 +260,7 @@
     "price": 59.95,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/161970.webp"
   },
   {
@@ -286,9 +271,7 @@
     "price": 37.99,
     "status": true,
     "stock": 2,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/262712.webp"
   },
   {
@@ -299,9 +282,7 @@
     "price": 58.95,
     "status": true,
     "stock": 4,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/163068.webp"
   },
   {
@@ -312,9 +293,7 @@
     "price": 20.47,
     "status": true,
     "stock": 4,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/54043.webp"
   },
   {
@@ -325,9 +304,7 @@
     "price": 40.76,
     "status": true,
     "stock": 1,
-    "category": [
-      "Thematic Games"
-    ],
+    "category": ["Thematic Games"],
     "thumbnail": "../images/146508.webp"
   },
   {
@@ -338,9 +315,7 @@
     "price": 40.22,
     "status": true,
     "stock": 2,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/148228.webp"
   },
   {
@@ -351,9 +326,7 @@
     "price": 35,
     "status": true,
     "stock": 4,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/146886.webp"
   },
   {
@@ -364,9 +337,7 @@
     "price": 43.97,
     "status": true,
     "stock": 5,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/9209.webp"
   },
   {
@@ -377,9 +348,7 @@
     "price": 22.67,
     "status": true,
     "stock": 5,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/822.webp"
   },
   {
@@ -390,9 +359,7 @@
     "price": 65,
     "status": true,
     "stock": 4,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/555.webp"
   },
   {
@@ -403,9 +370,7 @@
     "price": 19.99,
     "status": true,
     "stock": 3,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/192291.webp"
   },
   {
@@ -416,9 +381,7 @@
     "price": 64,
     "status": true,
     "stock": 2,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/20551.webp"
   },
   {
@@ -429,9 +392,7 @@
     "price": 72.66,
     "status": true,
     "stock": 4,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/108745.webp"
   },
   {
@@ -442,9 +403,7 @@
     "price": 20.99,
     "status": true,
     "stock": 4,
-    "category": [
-      "Party Games"
-    ],
+    "category": ["Party Games"],
     "thumbnail": "../images/92828.webp"
   },
   {
@@ -455,9 +414,7 @@
     "price": 95,
     "status": true,
     "stock": 1,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/144344.webp"
   },
   {
@@ -468,9 +425,7 @@
     "price": 70.97,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/286096.webp"
   },
   {
@@ -481,9 +436,7 @@
     "price": 129.99,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/227789.webp"
   },
   {
@@ -494,9 +447,7 @@
     "price": 33.73,
     "status": true,
     "stock": 4,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/129622.webp"
   },
   {
@@ -507,9 +458,7 @@
     "price": 26.77,
     "status": true,
     "stock": 3,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/9217.webp"
   },
   {
@@ -520,9 +469,7 @@
     "price": 24.41,
     "status": true,
     "stock": 4,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/50.webp"
   },
   {
@@ -533,9 +480,7 @@
     "price": 39.6,
     "status": true,
     "stock": 5,
-    "category": [
-      "Thematic Games"
-    ],
+    "category": ["Thematic Games"],
     "thumbnail": "../images/15987.webp"
   },
   {
@@ -546,9 +491,7 @@
     "price": 10.51,
     "status": true,
     "stock": 2,
-    "category": [
-      "Family Games"
-    ],
+    "category": ["Family Games"],
     "thumbnail": "../images/98778.webp"
   },
   {
@@ -559,10 +502,7 @@
     "price": 43.97,
     "status": true,
     "stock": 2,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/13.webp"
   },
   {
@@ -573,10 +513,7 @@
     "price": 24.73,
     "status": true,
     "stock": 3,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
+    "category": ["Family Games", "Strategy Games"],
     "thumbnail": "../images/478.webp"
   },
   {
@@ -587,64 +524,7 @@
     "price": 45,
     "status": true,
     "stock": 5,
-    "category": [
-      "Strategy Games"
-    ],
+    "category": ["Strategy Games"],
     "thumbnail": "../images/297030.webp"
-  },
-  {
-    "id": 49,
-    "title": "Hola2",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 654
-  },
-  {
-    "id": 50,
-    "title": "Hola2",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 654
-  },
-  {
-    "id": 51,
-    "title": "Hola2",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 654
-  },
-  {
-    "id": 53,
-    "title": "Hola2",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": ""
-  },
-  {
-    "id": 54,
-    "title": "Hola2",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": ""
   }
 ]
