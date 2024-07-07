@@ -15,9 +15,8 @@ try {
   products = JSON.parse(fs.readFileSync("./json/products.json"), "utf8"); //utf8 es la encriptacion
 } catch (error) {
   console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
-    fs.writeFileSync("./json/products.json", JSON.stringify(products));
-    console.log("Archivo creado correctamente");
-
+  fs.writeFileSync("./json/products.json", JSON.stringify(products));
+  console.log("Archivo creado correctamente");
 }
 
 console.log(
@@ -26,6 +25,7 @@ console.log(
 
 //Se realiza la petición GET, donde si se especifica el límite de queries, se realiza el display como tal, y sino, se muestran todos los productos.
 router.get("/", (req, res) => {
+  products = leerArchivo();
   let limit = parseInt(req.query.limit);
 
   if (!isNaN(limit) && limit > 0) {
@@ -39,6 +39,7 @@ router.get("/", (req, res) => {
 
 //Se especifica el producto por id, con el método GET.
 router.get("/:pid", (req, res) => {
+  products = leerArchivo();
   let idProducto = parseInt(req.params.pid);
   const productoEncontrado = products.find(
     (producto) => producto.id === idProducto
@@ -50,6 +51,7 @@ router.get("/:pid", (req, res) => {
 
 //Se especifica el método post para agregar un nuevo producto
 router.post("/", (req, res) => {
+  products = leerArchivo();
   const { title } = req.body;
   const { description } = req.body;
   const { code } = req.body;
@@ -105,6 +107,7 @@ router.post("/", (req, res) => {
 
 //Se espefica el método put, tal que lo que se modifique, se cambie en el archivo.
 router.put("/:pid", (req, res) => {
+  products = leerArchivo();
   let idProducto = parseInt(req.params.pid);
   const index = products.findIndex((producto) => producto.id === idProducto);
   if (index === -1) {
@@ -140,6 +143,7 @@ router.put("/:pid", (req, res) => {
 
 //Se especifica el método delete
 router.delete("/:pid", (req, res) => {
+  products = leerArchivo();
   let idProducto = parseInt(req.params.pid);
   const productoAEliminar = products.find(
     (producto) => producto.id === idProducto
@@ -172,4 +176,8 @@ function getNextId(products) {
 
 function escribirArchivo(products) {
   fs.writeFileSync("./json/products.json", JSON.stringify(products, null, 2));
+}
+
+function leerArchivo() {
+  return JSON.parse(fs.readFileSync("./json/products.json"), "utf8");
 }
