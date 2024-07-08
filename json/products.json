@@ -6,8 +6,11 @@
     "code": 174430,
     "price": 159.99,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games", "Thematic Games"],
+    "stock": 6,
+    "category": [
+      "Strategy Games",
+      "Thematic Games"
+    ],
     "thumbnail": "../images/174430.webp"
   },
   {
@@ -17,8 +20,10 @@
     "code": 167791,
     "price": 65.9,
     "status": true,
-    "stock": 1,
-    "category": ["Strategy Games"],
+    "stock": 20,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/167791.webp"
   },
   {
@@ -28,8 +33,10 @@
     "code": 162886,
     "price": 70.99,
     "status": true,
-    "stock": 1,
-    "category": ["Strategy Games"],
+    "stock": 4,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/162886.webp"
   },
   {
@@ -40,7 +47,9 @@
     "price": 59.79,
     "status": true,
     "stock": 3,
-    "category": ["Strategy Games"],
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/120677.webp"
   },
   {
@@ -50,8 +59,11 @@
     "code": 266192,
     "price": 47.69,
     "status": true,
-    "stock": 3,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 6,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/266192.webp"
   },
   {
@@ -61,8 +73,10 @@
     "code": 3076,
     "price": 124.93,
     "status": true,
-    "stock": 2,
-    "category": ["Strategy Games"],
+    "stock": 6,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/3076.webp"
   },
   {
@@ -72,8 +86,10 @@
     "code": 31260,
     "price": 58.95,
     "status": true,
-    "stock": 2,
-    "category": ["Strategy Games"],
+    "stock": 8,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/31260.webp"
   },
   {
@@ -83,8 +99,10 @@
     "code": 2651,
     "price": 44.95,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games"],
+    "stock": 15,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/2651.webp"
   },
   {
@@ -94,8 +112,10 @@
     "code": 126163,
     "price": 58.91,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games"],
+    "stock": 11,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/126163.webp"
   },
   {
@@ -105,8 +125,11 @@
     "code": 284083,
     "price": 14.99,
     "status": true,
-    "stock": 3,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 13,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/284083.webp"
   },
   {
@@ -116,8 +139,10 @@
     "code": 35677,
     "price": 70.99,
     "status": true,
-    "stock": 4,
-    "category": ["Strategy Games"],
+    "stock": 20,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/35677.webp"
   },
   {
@@ -127,8 +152,11 @@
     "code": 230802,
     "price": 31.99,
     "status": true,
-    "stock": 4,
-    "category": ["Abstract Games", "Family Games"],
+    "stock": 6,
+    "category": [
+      "Abstract Games",
+      "Family Games"
+    ],
     "thumbnail": "../images/230802.webp"
   },
   {
@@ -138,8 +166,10 @@
     "code": 125153,
     "price": 199.95,
     "status": true,
-    "stock": 5,
-    "category": ["Strategy Games"],
+    "stock": 10,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/125153.webp"
   },
   {
@@ -149,8 +179,11 @@
     "code": 68448,
     "price": 59.99,
     "status": true,
-    "stock": 2,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 12,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/68448.webp"
   },
   {
@@ -160,8 +193,10 @@
     "code": 229853,
     "price": 49.95,
     "status": true,
-    "stock": 2,
-    "category": ["Strategy Games"],
+    "stock": 4,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/229853.webp"
   },
   {
@@ -171,8 +206,10 @@
     "code": 244521,
     "price": 39.99,
     "status": true,
-    "stock": 4,
-    "category": ["Family Games"],
+    "stock": 17,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/244521.webp"
   },
   {
@@ -182,8 +219,10 @@
     "code": 161533,
     "price": 126.95,
     "status": true,
-    "stock": 2,
-    "category": ["Strategy Games"],
+    "stock": 8,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/161533.webp"
   },
   {
@@ -193,8 +232,10 @@
     "code": 18602,
     "price": 124.99,
     "status": true,
-    "stock": 4,
-    "category": ["Strategy Games"],
+    "stock": 5,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/18602.webp"
   },
   {
@@ -204,8 +245,10 @@
     "code": 93,
     "price": 56.2,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games"],
+    "stock": 17,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/93.webp"
   },
   {
@@ -215,8 +258,10 @@
     "code": 42,
     "price": 120,
     "status": true,
-    "stock": 5,
-    "category": ["Strategy Games"],
+    "stock": 19,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/42.webp"
   },
   {
@@ -226,8 +271,10 @@
     "code": 203993,
     "price": 49.95,
     "status": true,
-    "stock": 1,
-    "category": ["Strategy Games"],
+    "stock": 14,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/203993.webp"
   },
   {
@@ -237,8 +284,11 @@
     "code": 30549,
     "price": 31.6,
     "status": true,
-    "stock": 4,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 10,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/30549.webp"
   },
   {
@@ -248,8 +298,11 @@
     "code": 281259,
     "price": 34.9,
     "status": true,
-    "stock": 5,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 17,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/281259.webp"
   },
   {
@@ -259,8 +312,10 @@
     "code": 161970,
     "price": 59.95,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games"],
+    "stock": 10,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/161970.webp"
   },
   {
@@ -270,8 +325,10 @@
     "code": 262712,
     "price": 37.99,
     "status": true,
-    "stock": 2,
-    "category": ["Strategy Games"],
+    "stock": 9,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/262712.webp"
   },
   {
@@ -281,8 +338,10 @@
     "code": 163068,
     "price": 58.95,
     "status": true,
-    "stock": 4,
-    "category": ["Strategy Games"],
+    "stock": 11,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/163068.webp"
   },
   {
@@ -292,8 +351,10 @@
     "code": 54043,
     "price": 20.47,
     "status": true,
-    "stock": 4,
-    "category": ["Family Games"],
+    "stock": 5,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/54043.webp"
   },
   {
@@ -303,8 +364,10 @@
     "code": 146508,
     "price": 40.76,
     "status": true,
-    "stock": 1,
-    "category": ["Thematic Games"],
+    "stock": 13,
+    "category": [
+      "Thematic Games"
+    ],
     "thumbnail": "../images/146508.webp"
   },
   {
@@ -314,8 +377,10 @@
     "code": 148228,
     "price": 40.22,
     "status": true,
-    "stock": 2,
-    "category": ["Family Games"],
+    "stock": 15,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/148228.webp"
   },
   {
@@ -325,8 +390,10 @@
     "code": 146886,
     "price": 35,
     "status": true,
-    "stock": 4,
-    "category": ["Strategy Games"],
+    "stock": 14,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/146886.webp"
   },
   {
@@ -336,8 +403,10 @@
     "code": 9209,
     "price": 43.97,
     "status": true,
-    "stock": 5,
-    "category": ["Family Games"],
+    "stock": 12,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/9209.webp"
   },
   {
@@ -347,8 +416,10 @@
     "code": 822,
     "price": 22.67,
     "status": true,
-    "stock": 5,
-    "category": ["Family Games"],
+    "stock": 2,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/822.webp"
   },
   {
@@ -358,8 +429,10 @@
     "code": 555,
     "price": 65,
     "status": true,
-    "stock": 4,
-    "category": ["Strategy Games"],
+    "stock": 11,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/555.webp"
   },
   {
@@ -369,8 +442,10 @@
     "code": 192291,
     "price": 19.99,
     "status": true,
-    "stock": 3,
-    "category": ["Family Games"],
+    "stock": 16,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/192291.webp"
   },
   {
@@ -380,8 +455,10 @@
     "code": 20551,
     "price": 64,
     "status": true,
-    "stock": 2,
-    "category": ["Strategy Games"],
+    "stock": 4,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/20551.webp"
   },
   {
@@ -391,8 +468,10 @@
     "code": 108745,
     "price": 72.66,
     "status": true,
-    "stock": 4,
-    "category": ["Strategy Games"],
+    "stock": 12,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/108745.webp"
   },
   {
@@ -402,8 +481,10 @@
     "code": 92828,
     "price": 20.99,
     "status": true,
-    "stock": 4,
-    "category": ["Party Games"],
+    "stock": 9,
+    "category": [
+      "Party Games"
+    ],
     "thumbnail": "../images/92828.webp"
   },
   {
@@ -413,8 +494,10 @@
     "code": 144344,
     "price": 95,
     "status": true,
-    "stock": 1,
-    "category": ["Strategy Games"],
+    "stock": 20,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/144344.webp"
   },
   {
@@ -425,7 +508,9 @@
     "price": 70.97,
     "status": true,
     "stock": 3,
-    "category": ["Strategy Games"],
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/286096.webp"
   },
   {
@@ -435,8 +520,10 @@
     "code": 227789,
     "price": 129.99,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games"],
+    "stock": 10,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/227789.webp"
   },
   {
@@ -446,8 +533,10 @@
     "code": 129622,
     "price": 33.73,
     "status": true,
-    "stock": 4,
-    "category": ["Family Games"],
+    "stock": 1,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/129622.webp"
   },
   {
@@ -457,8 +546,10 @@
     "code": 9217,
     "price": 26.77,
     "status": true,
-    "stock": 3,
-    "category": ["Strategy Games"],
+    "stock": 18,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/9217.webp"
   },
   {
@@ -468,8 +559,10 @@
     "code": 50,
     "price": 24.41,
     "status": true,
-    "stock": 4,
-    "category": ["Family Games"],
+    "stock": 3,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/50.webp"
   },
   {
@@ -479,8 +572,10 @@
     "code": 15987,
     "price": 39.6,
     "status": true,
-    "stock": 5,
-    "category": ["Thematic Games"],
+    "stock": 7,
+    "category": [
+      "Thematic Games"
+    ],
     "thumbnail": "../images/15987.webp"
   },
   {
@@ -490,8 +585,10 @@
     "code": 98778,
     "price": 10.51,
     "status": true,
-    "stock": 2,
-    "category": ["Family Games"],
+    "stock": 19,
+    "category": [
+      "Family Games"
+    ],
     "thumbnail": "../images/98778.webp"
   },
   {
@@ -501,8 +598,11 @@
     "code": 13,
     "price": 43.97,
     "status": true,
-    "stock": 2,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 9,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/13.webp"
   },
   {
@@ -512,8 +612,11 @@
     "code": 478,
     "price": 24.73,
     "status": true,
-    "stock": 3,
-    "category": ["Family Games", "Strategy Games"],
+    "stock": 11,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
     "thumbnail": "../images/478.webp"
   },
   {
@@ -523,8 +626,10 @@
     "code": 297030,
     "price": 45,
     "status": true,
-    "stock": 5,
-    "category": ["Strategy Games"],
+    "stock": 4,
+    "category": [
+      "Strategy Games"
+    ],
     "thumbnail": "../images/297030.webp"
   }
 ]

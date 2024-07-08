@@ -61,6 +61,7 @@ router.put("/:cid/product/:pid", (req, res) => {
     const productoAAgregar = products.find(
       (product) => product.id === idProducto
     );
+
     if (productoAAgregar) {
       const index = carts.findIndex((carrito) => carrito.id === idCarrito);
       let productoCartIndex = carts[index].products.findIndex(

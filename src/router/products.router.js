@@ -31,9 +31,14 @@ router.get("/", (req, res) => {
   if (!isNaN(limit) && limit > 0) {
     let productosLimitados = [...products];
     productosLimitados = productosLimitados.slice(0, limit);
-    res.json(productosLimitados);
+    res
+      .status(201)
+      .json({
+        msg: `Mostrando los primeros ${limit} productos`,
+        productosLimitados,
+      });
   } else {
-    res.json(products);
+    res.status(201).json({ msg: "Mostrando todos los productos", products });
   }
 });
 
@@ -45,7 +50,12 @@ router.get("/:pid", (req, res) => {
     (producto) => producto.id === idProducto
   );
   productoEncontrado
-    ? res.send(productoEncontrado)
+    ? res
+        .status(201)
+        .json({
+          msg: `Mostrando el producto con id ${idProducto}`,
+          productoEncontrado,
+        })
     : res.status(404).json({ msg: "No se encuentra el producto con dicho id" });
 });
 
@@ -128,7 +138,9 @@ router.put("/:pid", (req, res) => {
     typeof code == "number" && (products[index].code = code);
     price && (products[index].price = price);
     typeof stock == "number" && (products[index].stock = stock);
-    stock == 0 && (products[index].status = false);
+    stock == 0
+      ? (products[index].status = false)
+      : (products[index].status = true);
     typeof category == "string" && (products[index].category = category);
     typeof thumbnail == "string" && (products[index].thumbnail = thumbnail);
 
