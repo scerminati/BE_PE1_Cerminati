@@ -26,9 +26,9 @@ router.get("/", (req, res) => {
   if (!isNaN(limit) && limit > 0) {
     let carritosLimitados = [...carts];
     carritosLimitados = carritosLimitados.slice(0, limit);
-    res.json(carritosLimitados);
+    res.status(201).json({msg: `Mostrando ${limit} carritos`, carritosLimitados});
   } else {
-    res.json(carts);
+    res.status(201).json({msg: "Mostrando todos los carritos", carts});
   }
 });
 
@@ -37,7 +37,7 @@ router.get("/:cid", (req, res) => {
   let idCarrito = parseInt(req.params.cid);
   const carritoEncontrado = carts.find((cart) => cart.id === idCarrito);
   carritoEncontrado
-    ? res.send(carritoEncontrado)
+    ? res.status(201).json({msg: `Mostrando carrito con id ${idCarrito}`,carritoEncontrado})
     : res.status(404).json({ msg: "No se encuentra el carrito con dicho id" });
 });
 
