@@ -1,15 +1,15 @@
-const express = require("express");
-const fs = require("fs");
+import express from "express";
+import fs from "express";
 const router = express.Router();
 
 let carts = [];
 
 try {
-  carts = JSON.parse(fs.readFileSync("./json/carts.json"), "utf8"); //utf8 es la encriptacion
+  carts = JSON.parse(fs.readFile("./json/carts.json"), "utf8"); //utf8 es la encriptacion
 } catch (error) {
   console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
   try {
-    fs.writeFileSync("./json/carts.json", JSON.stringify(carts));
+    fs.writeFile("./json/carts.json", JSON.stringify(carts));
     console.log("Archivo creado correctamente");
   } catch (error) {
     console.log(error, "Error al crear archivo");
@@ -26,9 +26,11 @@ router.get("/", (req, res) => {
   if (!isNaN(limit) && limit > 0) {
     let carritosLimitados = [...carts];
     carritosLimitados = carritosLimitados.slice(0, limit);
-    res.status(201).json({msg: `Mostrando ${limit} carritos`, carritosLimitados});
+    res
+      .status(201)
+      .json({ msg: `Mostrando ${limit} carritos`, carritosLimitados });
   } else {
-    res.status(201).json({msg: "Mostrando todos los carritos", carts});
+    res.status(201).json({ msg: "Mostrando todos los carritos", carts });
   }
 });
 
@@ -37,7 +39,10 @@ router.get("/:cid", (req, res) => {
   let idCarrito = parseInt(req.params.cid);
   const carritoEncontrado = carts.find((cart) => cart.id === idCarrito);
   carritoEncontrado
-    ? res.status(201).json({msg: `Mostrando carrito con id ${idCarrito}`,carritoEncontrado})
+    ? res.status(201).json({
+        msg: `Mostrando carrito con id ${idCarrito}`,
+        carritoEncontrado,
+      })
     : res.status(404).json({ msg: "No se encuentra el carrito con dicho id" });
 });
 
@@ -51,7 +56,7 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:cid/product/:pid", (req, res) => {
-  let products = JSON.parse(fs.readFileSync("./json/products.json"), "utf8"); //utf8 es la encriptacion
+  let products = JSON.parse(fs.readFile("./json/products.json"), "utf8"); //utf8 es la encriptacion
 
   let idCarrito = parseInt(req.params.cid);
   let idProducto = parseInt(req.params.pid);
@@ -107,7 +112,7 @@ router.put("/:cid/product/:pid", (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
 
 function getNextId(carts) {
   if (carts.length === 0) {
@@ -122,9 +127,9 @@ function getNextId(carts) {
 }
 
 function escribirArchivo(carts) {
-  fs.writeFileSync("./json/carts.json", JSON.stringify(carts, null, 2));
+  fs.writeFile("./json/carts.json", JSON.stringify(carts, null, 2));
 }
 
 function escribirStock(products) {
-  fs.writeFileSync("./json/products.json", JSON.stringify(products, null, 2));
+  fs.writeFile("./json/products.json", JSON.stringify(products, null, 2));
 }

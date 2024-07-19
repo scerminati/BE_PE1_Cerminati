@@ -1,21 +1,21 @@
-const express = require("express");
-const fs = require("fs");
+import express from "express";
+import fs from "express";
 const router = express.Router();
 
 let products = [];
 
 //Iniciador de archivo products.json con array de productos, se utiliza solamente para generar el primer archivo, cargando el array en products.
 /*try {
-  fs.writeFileSync("./json/products.json", JSON.stringify(products, null, 2));
+  fs.writeFile("./json/products.json", JSON.stringify(products, null, 2));
 } catch (error) {
   console.log(error);
 }*/
 
 try {
-  products = JSON.parse(fs.readFileSync("./json/products.json"), "utf8"); //utf8 es la encriptacion
+  products = JSON.parse(fs.readFile("./json/products.json"), "utf8"); //utf8 es la encriptacion
 } catch (error) {
   console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
-  fs.writeFileSync("./json/products.json", JSON.stringify(products));
+  fs.writeFile("./json/products.json", JSON.stringify(products));
   console.log("Archivo creado correctamente");
 }
 
@@ -31,12 +31,10 @@ router.get("/", (req, res) => {
   if (!isNaN(limit) && limit > 0) {
     let productosLimitados = [...products];
     productosLimitados = productosLimitados.slice(0, limit);
-    res
-      .status(201)
-      .json({
-        msg: `Mostrando los primeros ${limit} productos`,
-        productosLimitados,
-      });
+    res.status(201).json({
+      msg: `Mostrando los primeros ${limit} productos`,
+      productosLimitados,
+    });
   } else {
     res.status(201).json({ msg: "Mostrando todos los productos", products });
   }
@@ -50,12 +48,10 @@ router.get("/:pid", (req, res) => {
     (producto) => producto.id === idProducto
   );
   productoEncontrado
-    ? res
-        .status(201)
-        .json({
-          msg: `Mostrando el producto con id ${idProducto}`,
-          productoEncontrado,
-        })
+    ? res.status(201).json({
+        msg: `Mostrando el producto con id ${idProducto}`,
+        productoEncontrado,
+      })
     : res.status(404).json({ msg: "No se encuentra el producto con dicho id" });
 });
 
@@ -172,7 +168,7 @@ router.delete("/:pid", (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
 
 function getNextId(products) {
   if (products.length === 0) {
@@ -187,9 +183,9 @@ function getNextId(products) {
 }
 
 function escribirArchivo(products) {
-  fs.writeFileSync("./json/products.json", JSON.stringify(products, null, 2));
+  fs.writeFile("./json/products.json", JSON.stringify(products, null, 2));
 }
 
 function leerArchivo() {
-  return JSON.parse(fs.readFileSync("./json/products.json"), "utf8");
+  return JSON.parse(fs.readFile("./json/products.json"), "utf8");
 }
