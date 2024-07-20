@@ -85,7 +85,7 @@ router.post("/", (req, res) => {
   fileManager("products", true, products)
     .then(() => {
       // Emitir evento de actualización de producto
-      socketServer.emit("productUpdated", newProduct);
+      socketServer.emit("Product Update", newProduct);
       res.status(201).json({
         msg: `Producto agregado exitosamente con id ${newProduct.id}`,
         newProduct,
@@ -139,7 +139,7 @@ router.put("/:pid", (req, res) => {
     fileManager("products", true, products)
       .then(() => {
         // Emitir evento de actualización de producto
-        socketServer.emit("productUpdated", products);
+        socketServer.emit("Product Update", products[index]);
         res.status(200).json({
           msg: `Producto modificado correctamente en el id ${idProducto}`,
           productoModificado: products[index],
@@ -170,7 +170,7 @@ router.delete("/:pid", (req, res) => {
   fileManager("products", true, products)
     .then(() => {
       // Emitir evento de eliminación de producto
-      socketServer.emit("productUpdated", products);
+      socketServer.emit("Product Deleted", productoAEliminar);
       res.status(200).json({
         msg: `Se elimina el producto con id ${idProducto}`,
         productoAEliminar,

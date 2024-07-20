@@ -1,32 +1,5 @@
 [
   {
-    "id": 10,
-    "title": "The Crew: The Quest for Planet Nine",
-    "description": "En el juego cooperativo de bazas, The Crew: La Búsqueda de Planeta Nueve, los jugadores encarnan astronautas en una aventura espacial llena de incertidumbres sobre el planeta desconocido. Con más de 50 misiones emocionantes, el desafío radica en superar el juego al cumplir con tareas individuales comunes para cada jugador. La comunicación se vuelve esencial en el equipo para enfrentar las variadas dificultades, pero en el espacio, resulta más complicada de lo esperado. Cada misión aumenta la dificultad, y después de cada una, el juego se puede pausar y reanudar más tarde. En lugar de la cantidad de bazas, lo que cuenta en cada misión son las bazas correctas en el momento adecuado. El equipo logra completar una misión solo si cada jugador tiene éxito en sus tareas individuales. El juego ofrece 50 misiones, con tres misiones adicionales publicadas en la revista spielbox 2/2020.",
-    "code": 284083,
-    "price": 14.99,
-    "status": true,
-    "stock": 13,
-    "category": [
-      "Family Games",
-      "Strategy Games"
-    ],
-    "thumbnail": "../images/284083.webp"
-  },
-  {
-    "id": 11,
-    "title": "Le Havre",
-    "description": "En Le Havre, cada turno de un jugador se divide en dos partes: en primer lugar, distribuir los bienes recién suministrados en los espacios de oferta y, luego, tomar una acción. Durante la acción, los jugadores pueden elegir tomar todos los bienes de un tipo de un espacio de oferta o utilizar uno de los edificios disponibles. Las acciones de construcción permiten mejorar bienes, venderlos o utilizarlos para construir edificios y barcos. Estos edificios representan tanto una inversión como una fuente de ingresos, ya que se debe pagar una tarifa para usar edificios ajenos. Por otro lado, los barcos son esenciales para proporcionar alimentos y alimentar a los trabajadores. Después de siete turnos, concluye la ronda con una cosecha que puede multiplicar el ganado y el grano de los jugadores, quienes deben asegurarse de alimentar a sus trabajadores. Tras un número predeterminado de rondas, cada jugador realiza una acción final, sumando el valor de sus edificios y barcos a sus reservas de dinero para determinar al ganador, quien haya acumulado la mayor fortuna.",
-    "code": 35677,
-    "price": 70.99,
-    "status": true,
-    "stock": 20,
-    "category": [
-      "Strategy Games"
-    ],
-    "thumbnail": "../images/35677.webp"
-  },
-  {
     "id": 12,
     "title": "Azul",
     "description": "Azul nos sumerge en la fascinante historia de los azulejos portugueses, inspirados inicialmente por los moros y adoptados con fervor por el rey Manuel I después de quedar cautivado por la belleza de la Alhambra. Como artistas en colocación de azulejos, los jugadores asumen el desafío de embellecer los muros del Palacio Real de Évora. En este juego estratégico, los participantes seleccionan hábilmente azulejos de colores de los proveedores y los disponen en sus tableros de jugador, puntuando según la disposición de estos en la decoración del palacio. Los patrones específicos y la finalización de conjuntos brindan puntos adicionales, mientras que el despilfarro de suministros afecta negativamente la puntuación. Al final, el jugador que haya acumulado la mayor cantidad de puntos se consagra como el ganador, celebrando su habilidad para crear un magnífico mosaico en el Palacio Real de Évora.",
@@ -525,17 +498,6 @@
     "thumbnail": 6854
   },
   {
-    "id": 50,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
     "id": 51,
     "title": "Prueba con id 51",
     "description": "hola",
@@ -582,6 +544,39 @@
   {
     "id": 55,
     "title": "Prueba con id 51",
+    "description": "hola",
+    "code": 123,
+    "price": 66,
+    "status": true,
+    "stock": 242432,
+    "category": "varios",
+    "thumbnail": 6854
+  },
+  {
+    "id": 56,
+    "title": "qadsdsad",
+    "description": "hola",
+    "code": 123,
+    "price": 66,
+    "status": true,
+    "stock": 242432,
+    "category": "varios",
+    "thumbnail": 6854
+  },
+  {
+    "id": 57,
+    "title": "qadsdsad",
+    "description": "hola",
+    "code": 123,
+    "price": 66,
+    "status": true,
+    "stock": 242432,
+    "category": "varios",
+    "thumbnail": 6854
+  },
+  {
+    "id": 58,
+    "title": "pupita",
     "description": "hola",
     "code": 123,
     "price": 66,
