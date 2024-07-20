@@ -1,25 +1,22 @@
 import express from "express";
-import fs from "express";
+import { fileManager, getNextId } from "../utils/filemanager.js";
+
 const router = express.Router();
 
 let carts = [];
 
-try {
-  carts = JSON.parse(fs.readFile("./json/carts.json"), "utf8"); //utf8 es la encriptacion
-} catch (error) {
-  console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
+// Middleware para cargar los carritos desde el archivo carts.json al inicio
+router.use(async (req, res, next) => {
   try {
-    fs.writeFile("./json/carts.json", JSON.stringify(carts));
-    console.log("Archivo creado correctamente");
+    carts = await fileManager("carts", false, []);
+    next();
   } catch (error) {
-    console.log(error, "Error al crear archivo");
+    console.log(error);
+    res.status(500).json({ msg: "Error al cargar los carritos." });
   }
-}
+});
 
-console.log(
-  `Archivo carts.json cargado correctamente, cantidad de carritos ${carts.length}`
-);
-
+// Obtener todos los carritos
 router.get("/", (req, res) => {
   let limit = parseInt(req.query.limit);
 
@@ -27,109 +24,90 @@ router.get("/", (req, res) => {
     let carritosLimitados = [...carts];
     carritosLimitados = carritosLimitados.slice(0, limit);
     res
-      .status(201)
+      .status(200)
       .json({ msg: `Mostrando ${limit} carritos`, carritosLimitados });
   } else {
-    res.status(201).json({ msg: "Mostrando todos los carritos", carts });
+    res.status(200).json({ msg: "Mostrando todos los carritos", carts });
   }
 });
 
-//Se especifica mostrar carrito por id correspondiente
+// Obtener carrito por ID
 router.get("/:cid", (req, res) => {
   let idCarrito = parseInt(req.params.cid);
   const carritoEncontrado = carts.find((cart) => cart.id === idCarrito);
   carritoEncontrado
-    ? res.status(201).json({
+    ? res.status(200).json({
         msg: `Mostrando carrito con id ${idCarrito}`,
         carritoEncontrado,
       })
     : res.status(404).json({ msg: "No se encuentra el carrito con dicho id" });
 });
 
+// Crear un nuevo carrito
 router.post("/", (req, res) => {
   const id = getNextId(carts);
   carts.push({ id, products: [] });
-  escribirArchivo(carts);
-  res
-    .status(201)
-    .json({ msg: `Nuevo carrito creado exitosamente con el id ${id}` });
+  fileManager("carts", true, carts)
+    .then(() => {
+      res
+        .status(201)
+        .json({ msg: `Nuevo carrito creado exitosamente con el id ${id}` });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ msg: "Error al crear el carrito." });
+    });
 });
 
-router.put("/:cid/product/:pid", (req, res) => {
-  let products = JSON.parse(fs.readFile("./json/products.json"), "utf8"); //utf8 es la encriptacion
-
+// Agregar producto a un carrito
+router.put("/:cid/product/:pid", async (req, res) => {
+  let products = await fileManager("products", false, []);
   let idCarrito = parseInt(req.params.cid);
   let idProducto = parseInt(req.params.pid);
 
   const carritoEncontrado = carts.find((carrito) => carrito.id === idCarrito);
-  if (carritoEncontrado) {
-    const productoAAgregar = products.find(
+  if (!carritoEncontrado) {
+    return res
+      .status(404)
+      .json({ msg: `El carrito con id ${idCarrito} no existe.` });
+  }
+
+  const productoAAgregar = products.find(
+    (product) => product.id === idProducto
+  );
+  if (!productoAAgregar) {
+    return res
+      .status(404)
+      .json({ msg: `El producto con id ${idProducto} no existe.` });
+  }
+
+  const index = carts.findIndex((carrito) => carrito.id === idCarrito);
+  let productoCartIndex = carts[index].products.findIndex(
+    (product) => product.id === idProducto
+  );
+
+  if (productoCartIndex !== -1 && productoAAgregar.stock > 0) {
+    carts[index].products[productoCartIndex].quantity++;
+  } else if (productoAAgregar.stock > 0) {
+    carts[index].products.push({ id: productoAAgregar.id, quantity: 1 });
+    productoCartIndex = carts[index].products.findIndex(
       (product) => product.id === idProducto
     );
-
-    if (productoAAgregar) {
-      const index = carts.findIndex((carrito) => carrito.id === idCarrito);
-      let productoCartIndex = carts[index].products.findIndex(
-        (product) => product.id === idProducto
-      );
-      const indexP = products.findIndex((product) => product.id === idProducto);
-      let existe = true;
-      if (productoCartIndex != -1 && productoAAgregar.status) {
-        carts[index].products[productoCartIndex].quantity++;
-        products[indexP].stock--;
-        products[indexP].stock === 0 && (products[indexP].status = false);
-        escribirStock(products);
-      } else if (!productoAAgregar.status) {
-        existe = false;
-        res.status(404).json({ msg: "No hay más stock de este producto" });
-      } else {
-        carts[index].products.push({
-          id: productoAAgregar.id,
-          quantity: 1,
-        });
-        products[indexP].stock--;
-        products[indexP].stock === 0 && (products[indexP].status = false);
-        escribirStock(products);
-        productoCartIndex = carts[index].products.findIndex(
-          (product) => product.id === idProducto
-        );
-      }
-      if (existe) {
-        escribirArchivo(carts);
-        const objetoCart = carts[index];
-        res.status(202).json({
-          msg: `El producto ${idProducto} ha sido agregado correctamente al carrito ${idCarrito}, la cantidad actual es ${carts[index].products[productoCartIndex].quantity}`,
-          objetoCart,
-        });
-      }
-    } else {
-      res.status(404).json({
-        msg: `El producto con id ${idProducto} no existe y no puede agregarse al carrito con id ${idCarrito}.`,
-      });
-    }
   } else {
-    res.status(404).json({ msg: `El carrito con id ${idCarrito} no existe.` });
+    return res.status(404).json({ msg: "No hay más stock de este producto." });
   }
+
+  productoAAgregar.stock--;
+  productoAAgregar.status = productoAAgregar.stock > 0;
+
+  await fileManager("products", true, products);
+  await fileManager("carts", true, carts);
+
+  const objetoCart = carts[index];
+  res.status(202).json({
+    msg: `El producto ${idProducto} ha sido agregado correctamente al carrito ${idCarrito}, la cantidad actual es ${carts[index].products[productoCartIndex].quantity}`,
+    objetoCart,
+  });
 });
 
 export default router;
-
-function getNextId(carts) {
-  if (carts.length === 0) {
-    return 1;
-  } else {
-    const largo = carts.length;
-    const ultimoId = Math.max(...carts.map((cart) => cart.id));
-    const maxId = largo >= ultimoId ? largo : ultimoId;
-
-    return maxId + 1;
-  }
-}
-
-function escribirArchivo(carts) {
-  fs.writeFile("./json/carts.json", JSON.stringify(carts, null, 2));
-}
-
-function escribirStock(products) {
-  fs.writeFile("./json/products.json", JSON.stringify(products, null, 2));
-}

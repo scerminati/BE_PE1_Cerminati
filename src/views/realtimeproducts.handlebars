@@ -1,0 +1,16 @@
+<!-- Código HTML de realtime.handlebars -->
+<div>
+  <h1>Realtime Dashboard</h1>
+  <p>Conectado a Socket.io</p><ul>
+    {{#each products}}
+      <li id={{this.id}}><p>Producto:
+          {{this.title}}
+          - Precio: ${{this.price}}
+          - Stock:
+          {{this.stock}}
+        </p></li>
+    {{/each}}</ul>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>

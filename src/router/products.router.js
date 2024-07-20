@@ -1,191 +1,185 @@
 import express from "express";
-import fs from "express";
+import { fileManager, getNextId } from "../utils/filemanager.js";
+import { socketServer } from "../app.js"; // Importar el servidor de Socket.io
+
 const router = express.Router();
 
-let products = [];
+// Middleware para cargar los productos desde el archivo products.json al inicio
+router.use(async (req, res, next) => {
+  try {
+    const loadedProducts = await fileManager("products", false, []);
+    req.products = loadedProducts; // Guardar los productos en el objeto de solicitud
+    next();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Error al cargar los productos." });
+  }
+});
 
-//Iniciador de archivo products.json con array de productos, se utiliza solamente para generar el primer archivo, cargando el array en products.
-/*try {
-  fs.writeFile("./json/products.json", JSON.stringify(products, null, 2));
-} catch (error) {
-  console.log(error);
-}*/
-
-try {
-  products = JSON.parse(fs.readFile("./json/products.json"), "utf8"); //utf8 es la encriptacion
-} catch (error) {
-  console.log(error, "No se pudo leer el archivo, se debe crear uno nuevo.");
-  fs.writeFile("./json/products.json", JSON.stringify(products));
-  console.log("Archivo creado correctamente");
-}
-
-console.log(
-  `Archivo products.json cargado correctamente, cantidad de productos ${products.length}`
-);
-
-//Se realiza la petición GET, donde si se especifica el límite de queries, se realiza el display como tal, y sino, se muestran todos los productos.
+// Obtener todos los productos
 router.get("/", (req, res) => {
-  products = leerArchivo();
+  const { products } = req; // Obtener productos del objeto de solicitud
   let limit = parseInt(req.query.limit);
 
   if (!isNaN(limit) && limit > 0) {
     let productosLimitados = [...products];
     productosLimitados = productosLimitados.slice(0, limit);
-    res.status(201).json({
+    res.status(200).json({
       msg: `Mostrando los primeros ${limit} productos`,
       productosLimitados,
     });
   } else {
-    res.status(201).json({ msg: "Mostrando todos los productos", products });
+    res.status(200).json({ msg: "Mostrando todos los productos", products });
   }
 });
 
-//Se especifica el producto por id, con el método GET.
+// Obtener producto por ID
 router.get("/:pid", (req, res) => {
-  products = leerArchivo();
+  const { products } = req;
   let idProducto = parseInt(req.params.pid);
   const productoEncontrado = products.find(
     (producto) => producto.id === idProducto
   );
   productoEncontrado
-    ? res.status(201).json({
+    ? res.status(200).json({
         msg: `Mostrando el producto con id ${idProducto}`,
         productoEncontrado,
       })
     : res.status(404).json({ msg: "No se encuentra el producto con dicho id" });
 });
 
-//Se especifica el método post para agregar un nuevo producto
+// Agregar un nuevo producto
 router.post("/", (req, res) => {
-  products = leerArchivo();
-  const { title } = req.body;
-  const { description } = req.body;
-  const { code } = req.body;
-  const { price } = req.body;
-  const { stock } = req.body;
-  const { category } = req.body;
-  let { thumbnail } = req.body;
-
-  if (!thumbnail || typeof thumbnail !== "string") {
-    thumbnail = "";
-  }
+  const { products } = req;
+  const { title, description, code, price, stock, category, thumbnail } =
+    req.body;
 
   if (
-    typeof title == "string" &&
-    typeof description == "string" &&
-    typeof code == "number" &&
-    typeof price == "number" &&
-    typeof stock == "number" &&
-    typeof category == "string"
+    typeof title !== "string" ||
+    typeof description !== "string" ||
+    typeof code !== "number" ||
+    typeof price !== "number" ||
+    typeof stock !== "number" ||
+    typeof category !== "string"
   ) {
-    let status;
-    if (stock > 0) {
-      status = true;
-    } else {
-      status = false;
-    }
-    //armar nuevo id
-    const newProduct = {
-      id: getNextId(products),
-      title,
-      description,
-      code,
-      price,
-      status,
-      stock,
-      category,
-      thumbnail,
-    };
-
-    products.push(newProduct);
-    escribirArchivo(products);
-    res.status(201).json({
-      msg: `producto agregado exitosamente con id ${newProduct.id}`,
-      newProduct,
-    });
-  } else {
-    console.log(title, description, code, price, stock, category, thumbnail);
-    res.status(404).json({
+    return res.status(400).json({
       msg: "Falta algún campo obligatorio o alguno de los campos tiene el tipo de dato incorrecto.",
     });
   }
+
+  let status = stock > 0;
+
+  const newProduct = {
+    id: getNextId(products),
+    title,
+    description,
+    code,
+    price,
+    status,
+    stock,
+    category,
+    thumbnail: thumbnail || "",
+  };
+
+  products.push(newProduct);
+  fileManager("products", true, products)
+    .then(() => {
+      // Emitir evento de actualización de producto
+      socketServer.emit("productUpdated", newProduct);
+      res.status(201).json({
+        msg: `Producto agregado exitosamente con id ${newProduct.id}`,
+        newProduct,
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ msg: "Error al guardar el producto." });
+    });
 });
 
-//Se espefica el método put, tal que lo que se modifique, se cambie en el archivo.
+// Modificar un producto por ID
 router.put("/:pid", (req, res) => {
-  products = leerArchivo();
+  const { products } = req;
   let idProducto = parseInt(req.params.pid);
   const index = products.findIndex((producto) => producto.id === idProducto);
+
   if (index === -1) {
-    res.status(404).json({ msg: "No se encuentra el producto con dicho id" });
-  } else {
-    const { title } = req.body;
-    const { description } = req.body;
-    const { code } = req.body;
-    const { price } = req.body;
-    const { stock } = req.body;
-    const { category } = req.body;
-    let { thumbnail } = req.body;
+    return res
+      .status(404)
+      .json({ msg: "No se encuentra el producto con dicho id" });
+  }
 
-    const idModificado = products[index].id;
-    typeof title == "string" && (products[index].title = title);
-    typeof description == "string" &&
-      (products[index].description = description);
-    typeof code == "number" && (products[index].code = code);
-    price && (products[index].price = price);
-    typeof stock == "number" && (products[index].stock = stock);
-    stock == 0
-      ? (products[index].status = false)
-      : (products[index].status = true);
-    typeof category == "string" && (products[index].category = category);
-    typeof thumbnail == "string" && (products[index].thumbnail = thumbnail);
+  const { title, description, code, price, stock, category, thumbnail } =
+    req.body;
 
-    const productoModificado = products[index];
-    escribirArchivo(products);
-    res.status(201).json({
-      msg: `producto modificado correctamente en el id ${idModificado}`,
-      productoModificado,
+  if (
+    (title !== undefined && typeof title !== "string") ||
+    (description !== undefined && typeof description !== "string") ||
+    (code !== undefined && typeof code !== "number") ||
+    (price !== undefined && typeof price !== "number") ||
+    (stock !== undefined && typeof stock !== "number") ||
+    (category !== undefined && typeof category !== "string")
+  ) {
+    return res.status(400).json({
+      msg: "Falta algún campo obligatorio o alguno de los campos tiene el tipo de dato incorrecto.",
     });
+  } else {
+    products[index] = {
+      ...products[index],
+      title: title || products[index].title,
+      description: description || products[index].description,
+      code: code || products[index].code,
+      price: price || products[index].price,
+      stock: stock !== undefined ? stock : products[index].stock,
+      status: stock > 0,
+      category: category || products[index].category,
+      thumbnail: thumbnail || products[index].thumbnail,
+    };
+
+    fileManager("products", true, products)
+      .then(() => {
+        // Emitir evento de actualización de producto
+        socketServer.emit("productUpdated", products);
+        res.status(200).json({
+          msg: `Producto modificado correctamente en el id ${idProducto}`,
+          productoModificado: products[index],
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ msg: "Error al modificar el producto." });
+      });
   }
 });
 
-//Se especifica el método delete
+// Eliminar un producto por ID
 router.delete("/:pid", (req, res) => {
-  products = leerArchivo();
+  const { products } = req;
   let idProducto = parseInt(req.params.pid);
-  const productoAEliminar = products.find(
-    (producto) => producto.id === idProducto
-  );
-  if (productoAEliminar) {
-    products = products.filter((product) => product.id !== idProducto);
-    escribirArchivo(products);
-    res.status(201).json({
-      msg: `Se elimina el producto con id ${productoAEliminar.id}`,
-      productoAEliminar,
-    });
-  } else {
-    res.status(404).json({ msg: "No se encuentra el producto con dicho id" });
+  const index = products.findIndex((producto) => producto.id === idProducto);
+
+  if (index === -1) {
+    return res
+      .status(404)
+      .json({ msg: "No se encuentra el producto con dicho id" });
   }
+
+  const productoAEliminar = products[index];
+  products.splice(index, 1);
+
+  fileManager("products", true, products)
+    .then(() => {
+      // Emitir evento de eliminación de producto
+      socketServer.emit("productUpdated", products);
+      res.status(200).json({
+        msg: `Se elimina el producto con id ${idProducto}`,
+        productoAEliminar,
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ msg: "Error al eliminar el producto." });
+    });
 });
 
 export default router;
-
-function getNextId(products) {
-  if (products.length === 0) {
-    return 1;
-  } else {
-    const largo = products.length;
-    const ultimoId = Math.max(...products.map((producto) => producto.id));
-    const maxId = largo >= ultimoId ? largo : ultimoId;
-
-    return maxId + 1;
-  }
-}
-
-function escribirArchivo(products) {
-  fs.writeFile("./json/products.json", JSON.stringify(products, null, 2));
-}
-
-function leerArchivo() {
-  return JSON.parse(fs.readFile("./json/products.json"), "utf8");
-}

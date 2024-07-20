@@ -1,16 +1,10 @@
-<div><h1>CBienvenido a este E-commerce</h1>
+<div>
+  <h1>Bienvenido a este E-Commerce</h1>
+    <h2>So Games, Juegos de Mesa</h2>
 
-  <h2>Listado de productos</h2>
-
-  {{#each product}}
-    <p>Producto: {{this.title}}</p>
-    <p>Precio: {{this.price}}</p>
-    <p>Stock: {{this.stock}}</p>
-  {{/each}}
+    <h2>Lista de Productos</h2>
+      {{#each products}}
+        <p>Producto: {{this.title}} - Precio: ${{this.price}} - Stock: {{this.stock}} </p>
+      {{/each}}
 </div>
 
-<input type="text" id="chatBox" />
-<p id="messageLogs"></p>
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/index.js"></script>
