@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = document.getElementById("submitBtn");
   const resetBtn = document.getElementById("resetBtn");
   const tituloHTML = document.getElementById("tituloHTML");
+  const addProdbtn = document.getElementById("addProdbtn");
+  const addProdForm = document.getElementById("addProdForm");
+  const cancel = document.getElementById("cancel");
+  const listado = document.getElementById("listado");
 
   // Escuchar evento de actualización de producto
   socket.on("Product Update", (updatedProduct) => {
@@ -40,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // Agregar nuevo producto a la lista
       const newProductItem = document.createElement("div");
+
       newProductItem.setAttribute("id", updatedProduct.id);
+      newProductItem.classList.add("productoBox");
       newProductItem.innerHTML = innerHTMLtext(updatedProduct);
       productList.appendChild(newProductItem);
     }
@@ -54,6 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (existingProduct) {
       existingProduct.remove();
     }
+  });
+
+  //Botón que me permite ver el formulario
+
+  addProdbtn.addEventListener("click", () => {
+    addProdForm.style.display = "inline";
+    addProdbtn.style.display = "none";
   });
 
   // Evento para enviar el formulario de producto
@@ -86,9 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Emitir evento de actualización de producto a través de Socket.io
       socket.emit("Product Update", newProduct.newProduct);
 
-      // Resetear el formulario
-      thumbnailPreview.src = "./images/no-image.jpg";
-      productForm.reset();
+      cancelOp();
+      listado.scrollTop = listado.scrollHeight;
     } catch (error) {
       console.error("Error al agregar el producto:", error.message);
     }
@@ -122,6 +134,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", async (event) => {
     if (event.target.classList.contains("btn-modify")) {
       const productId = event.target.getAttribute("data-product-id");
+      addProdForm.style.display = "inline";
+      addProdbtn.style.display = "none";
 
       try {
         const response = await fetch(`/api/products/${productId}`);
@@ -191,28 +205,48 @@ document.addEventListener("DOMContentLoaded", function () {
       // Emitir evento de actualización de producto a través de Socket.io
       socket.emit("Product Update", updatedProduct.productoModificado);
 
-      // Resetear el formulario después de la actualización
-      productForm.reset();
-
-      // Restaurar el texto y la funcionalidad del botón de enviar
-      submitBtn.innerText = "Enviar";
-      submitBtn.removeEventListener("click", handleUpdate);
-      submitBtn.addEventListener("click", handleSubmit);
-      thumbnailPreview.src = "./images/no-image.jpg";
-      resetBtn.style.display = "inline";
-      tituloHTML.innerHTML = `Añadir un producto`;
+      cancelOp();
     } catch (error) {
       console.error("Error al actualizar el producto:", error.message);
     }
   }
 
+  cancel.addEventListener("click", () => cancelOp());
+
+  function cancelOp() {
+    productForm.reset();
+    // Restaurar el texto y la funcionalidad del botón de enviar
+    submitBtn.innerText = "Enviar";
+    submitBtn.removeEventListener("click", handleUpdate);
+    submitBtn.addEventListener("click", handleSubmit);
+    thumbnailPreview.src = "./images/no-image.jpg";
+    resetBtn.style.display = "inline";
+    tituloHTML.innerHTML = `Añadir un producto`;
+    addProdForm.style.display = "none";
+    addProdbtn.style.display = "inline";
+  }
+
   //Función para estandarizar la creación o modificación de un producto
   function innerHTMLtext(product) {
     return `
-        <p>Producto: ${product.title} - Precio: $${product.price} - Stock: ${product.stock}
-          <button type="button" class="btn-modify" data-product-id="${product.id}">Modificar</button>
-          <button type="button" class="btn-delete" data-product-id="${product.id}">Eliminar</button>
-        </p>
+        <p class="flex0">ID: ${product.id}</p>
+        <p class="flex1">
+          Producto:
+          ${product.title}</p>
+        <p class="flex2"> Precio: ${product.price} </p>
+        <p class="flex3">
+          Stock:
+          ${product.stock}</p>
+        <button
+          type="button"
+          class="btn-modify flex4"
+          data-product-id="${product.id}"
+        >Modificar</button>
+        <button
+          type="button"
+          class="btn-delete flex5"
+          data-product-id="${product.id}"
+        >Eliminar</button>
       `;
   }
 
