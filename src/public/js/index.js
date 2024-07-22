@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const thumbnailPreview = document.getElementById("thumbnailPreview");
   const productIdInput = document.getElementById("productId");
   const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
 
   // Escuchar evento de actualización de producto
   socket.on("Product Update", (updatedProduct) => {
@@ -34,19 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (existingProduct) {
       // Actualizar detalles del producto en la lista
-      existingProduct.innerHTML = `
-        <p>Producto: ${updatedProduct.title} - Precio: $${updatedProduct.price} - Stock: ${updatedProduct.stock}</p>
-      `;
+      existingProduct.innerHTML = innerHTMLtext(updatedProduct);
     } else {
       // Agregar nuevo producto a la lista
       const newProductItem = document.createElement("div");
       newProductItem.setAttribute("id", updatedProduct.id);
-      newProductItem.innerHTML = `
-        <p>Producto: ${updatedProduct.title} - Precio: $${updatedProduct.price} - Stock: ${updatedProduct.stock}
-          <button type="button" class="btn-modify" data-product-id="${updatedProduct.id}">Modificar</button>
-          <button type="button" class="btn-delete" data-product-id="${updatedProduct.id}">Eliminar</button>
-        </p>
-      `;
+      newProductItem.innerHTML = innerHTMLtext(updatedProduct);
       productList.appendChild(newProductItem);
     }
   });
@@ -63,55 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Evento para enviar el formulario de producto
   productForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    console.log("entro en post");
-
-    const formData = new FormData(productForm);
-    const title = formData.get("title");
-    const description = formData.get("description");
-    const code = parseInt(formData.get("code"));
-    const price = parseFloat(formData.get("price"));
-    const stock = parseInt(formData.get("stock"));
-    const category = formData.get("category");
-    let thumbnail = formData.get("thumbnail").name;
-
-    if (thumbnail === null || thumbnail === undefined || thumbnail === "") {
-      thumbnail = ""; // Asignar una cadena vacía si thumbnail es vacío
-    } else {
-      thumbnail = `../images/${thumbnail}`;
-    }
-
-    try {
-      const response = await fetch("/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          description,
-          code,
-          price,
-          stock,
-          category,
-          thumbnail,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const newProduct = await response.json();
-
-      // Emitir evento de actualización de producto a través de Socket.io
-      socket.emit("Product Update", newProduct.newProduct);
-
-      // Resetear el formulario
-      productForm.reset();
-    } catch (error) {
-      console.error("Error al agregar el producto:", error.message);
-    }
+    handleSubmit(event);
   });
 
   // Evento para eliminar un producto
@@ -173,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         submitBtn.innerText = "Actualizar";
         submitBtn.removeEventListener("click", handleSubmit);
         submitBtn.addEventListener("click", handleUpdate);
+        resetBtn.style.display = "none";
       } catch (error) {
         console.error(
           "Error al obtener los datos del producto:",
@@ -181,55 +128,129 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-});
 
-// Evento para actualizar un producto
-async function handleUpdate(event) {
-  event.preventDefault();
+  // Evento para actualizar un producto
+  async function handleUpdate(event) {
+    event.preventDefault();
 
-  const productId = productIdInput.value;
-  const title = titleInput.value;
-  const description = descriptionInput.value;
-  const code = parseInt(codeInput.value);
-  const price = parseFloat(priceInput.value);
-  const stock = parseInt(stockInput.value);
-  const category = categoryInput.value;
-  const thumbnail = thumbnailInput.value; // Asegúrate de manejar la carga de archivos correctamente si es necesario
-
-  try {
-    const response = await fetch(`/api/products/${productId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        description,
-        code,
-        price,
-        stock,
-        category,
-        thumbnail,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    // Validar el formulario HTML5
+    if (!productForm.checkValidity()) {
+      productForm.reportValidity();
+      return;
     }
 
-    const updatedProduct = await response.json();
+    const productId = productIdInput.value;
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const code = parseInt(codeInput.value);
+    const price = parseFloat(priceInput.value);
+    const stock = parseInt(stockInput.value);
+    const category = categoryInput.value;
+    const thumbnail = thumbnailInput.value; //pendiente de realizar
 
-    // Emitir evento de actualización de producto a través de Socket.io
-    socket.emit("Product Update", updatedProduct.productoModificado);
+    try {
+      const response = await fetch(`/api/products/${productId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          code,
+          price,
+          stock,
+          category,
+          thumbnail,
+        }),
+      });
 
-    // Resetear el formulario después de la actualización
-    productForm.reset();
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-    // Restaurar el texto y la funcionalidad del botón de enviar
-    submitBtn.innerText = "Enviar";
-    submitBtn.removeEventListener("click", handleUpdate);
-    submitBtn.addEventListener("click", handleSubmit);
-  } catch (error) {
-    console.error("Error al actualizar el producto:", error.message);
+      const updatedProduct = await response.json();
+
+      // Emitir evento de actualización de producto a través de Socket.io
+      socket.emit("Product Update", updatedProduct.productoModificado);
+
+      // Resetear el formulario después de la actualización
+      productForm.reset();
+
+      // Restaurar el texto y la funcionalidad del botón de enviar
+      submitBtn.innerText = "Enviar";
+      submitBtn.removeEventListener("click", handleUpdate);
+      submitBtn.addEventListener("click", handleSubmit);
+      thumbnailPreview.src = "";
+      resetBtn.style.display = "inline";
+    } catch (error) {
+      console.error("Error al actualizar el producto:", error.message);
+    }
   }
-}
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(productForm);
+    const title = formData.get("title");
+    const description = formData.get("description");
+    const code = parseInt(formData.get("code"));
+    const price = parseFloat(formData.get("price"));
+    const stock = parseInt(formData.get("stock"));
+    const category = formData.get("category");
+    let thumbnail = formData.get("thumbnail").name;
+
+    if (thumbnail === null || thumbnail === undefined || thumbnail === "") {
+      thumbnail = ""; // Asignar una cadena vacía si thumbnail es vacío
+    } else {
+      thumbnail = `../images/${thumbnail}`;
+    }
+
+    // Validar el formulario HTML5
+    if (!productForm.checkValidity()) {
+      productForm.reportValidity();
+      return;
+    }
+    try {
+      const response = await fetch("/api/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          code,
+          price,
+          stock,
+          category,
+          thumbnail,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const newProduct = await response.json();
+
+      // Emitir evento de actualización de producto a través de Socket.io
+      socket.emit("Product Update", newProduct.newProduct);
+
+      // Resetear el formulario
+      productForm.reset();
+    } catch (error) {
+      console.error("Error al agregar el producto:", error.message);
+    }
+  }
+
+  //Función para estandarizar la creación o modificación de un producto
+  function innerHTMLtext(product) {
+    return `
+        <p>Producto: ${product.title} - Precio: $${product.price} - Stock: ${product.stock}
+          <button type="button" class="btn-modify" data-product-id="${product.id}">Modificar</button>
+          <button type="button" class="btn-delete" data-product-id="${product.id}">Eliminar</button>
+        </p>
+      `;
+  }
+});
