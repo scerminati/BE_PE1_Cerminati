@@ -27,7 +27,7 @@ app.set("view engine", "handlebars");
 //Estáticos
 app.use(express.static(path.join(__dirname, "../public")));
 
-//////// Configure Socket.io ////////
+//Configuración Socket.io
 const httpServer = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
@@ -45,9 +45,6 @@ function configureSocketServer(httpServer) {
       console.log("A client disconnected");
     });
 
-    // socket.on("productUpdated", (updatedProduct) => {
-    //   io.emit("productUpdated", updatedProduct); // Emitir a todos los clientes
-    // });
   });
 
   return io;
