@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const productIdInput = document.getElementById("productId");
   const submitBtn = document.getElementById("submitBtn");
   const resetBtn = document.getElementById("resetBtn");
+  const tituloHTML = document.getElementById("tituloHTML");
 
   // Escuchar evento de actualización de producto
   socket.on("Product Update", (updatedProduct) => {
@@ -120,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         submitBtn.removeEventListener("click", handleSubmit);
         submitBtn.addEventListener("click", handleUpdate);
         resetBtn.style.display = "none";
+        tituloHTML.innerHTML = `Modificar el producto con id ${productId}`;
       } catch (error) {
         console.error(
           "Error al obtener los datos del producto:",
@@ -133,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function handleUpdate(event) {
     event.preventDefault();
 
+    const formData = new FormData(productForm);
     // Validar el formulario HTML5
     if (!productForm.checkValidity()) {
       productForm.reportValidity();
@@ -140,29 +143,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const productId = productIdInput.value;
-    const title = titleInput.value;
-    const description = descriptionInput.value;
-    const code = parseInt(codeInput.value);
-    const price = parseFloat(priceInput.value);
-    const stock = parseInt(stockInput.value);
-    const category = categoryInput.value;
-    const thumbnail = thumbnailInput.value; //pendiente de realizar
 
     try {
       const response = await fetch(`/api/products/${productId}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          description,
-          code,
-          price,
-          stock,
-          category,
-          thumbnail,
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -183,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
       submitBtn.addEventListener("click", handleSubmit);
       thumbnailPreview.src = "";
       resetBtn.style.display = "inline";
+      tituloHTML.innerHTML = `Añadir un producto`;
     } catch (error) {
       console.error("Error al actualizar el producto:", error.message);
     }
@@ -192,19 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     const formData = new FormData(productForm);
-    const title = formData.get("title");
-    const description = formData.get("description");
-    const code = parseInt(formData.get("code"));
-    const price = parseFloat(formData.get("price"));
-    const stock = parseInt(formData.get("stock"));
-    const category = formData.get("category");
-    let thumbnail = formData.get("thumbnail").name;
-
-    if (thumbnail === null || thumbnail === undefined || thumbnail === "") {
-      thumbnail = ""; // Asignar una cadena vacía si thumbnail es vacío
-    } else {
-      thumbnail = `../images/${thumbnail}`;
-    }
 
     // Validar el formulario HTML5
     if (!productForm.checkValidity()) {
@@ -214,18 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await fetch("/api/products", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          description,
-          code,
-          price,
-          stock,
-          category,
-          thumbnail,
-        }),
+        body: formData,
       });
 
       if (!response.ok) {

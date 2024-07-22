@@ -1,5 +1,5 @@
 import express from "express";
-import { fileManager, getNextId } from "../utils/filemanager.js";
+import { fileManager, getNextId, uploader } from "../utils/utils.js";
 import { socketServer } from "../app.js"; // Importar el servidor de Socket.io
 
 const router = express.Router();
@@ -49,18 +49,22 @@ router.get("/:pid", (req, res) => {
 });
 
 // Agregar un nuevo producto
-router.post("/", (req, res) => {
+router.post("/", uploader.single("thumbnail"), (req, res) => {
   const { products } = req;
-  const { title, description, code, price, stock, category, thumbnail } =
-    req.body;
+  let { title, description, code, price, stock, category } = req.body;
+  code = parseInt(code);
+  price = parseFloat(price);
+  stock = parseInt(stock);
 
+  const thumbnail = req.file ? `../images/${req.file.originalname}` : "";
+  console.log(thumbnail);
   if (
-    typeof title !== "string" ||
-    typeof description !== "string" ||
-    typeof code !== "number" ||
-    typeof price !== "number" ||
-    typeof stock !== "number" ||
-    typeof category !== "string"
+    (title !== undefined && typeof title !== "string") ||
+    (description !== undefined && typeof description !== "string") ||
+    (code !== undefined && (typeof code !== "number" || code < 1)) ||
+    (price !== undefined && (typeof price !== "number" || price < 1)) ||
+    (stock !== undefined && (typeof stock !== "number" || stock < 0)) ||
+    (category !== undefined && typeof category !== "string")
   ) {
     return res.status(400).json({
       msg: "Falta algún campo obligatorio o alguno de los campos tiene el tipo de dato incorrecto.",
@@ -73,13 +77,21 @@ router.post("/", (req, res) => {
     id: getNextId(products),
     title,
     description,
-    code,
-    price,
+    code: parseInt(code),
+    price: parseFloat(price),
     status,
-    stock,
+    stock: parseInt(stock),
     category,
-    thumbnail: thumbnail || "",
+    thumbnail,
   };
+  console.log(newProduct);
+  let fileStatus;
+  if (thumbnail === "") {
+    fileStatus = "imagen no recibida.";
+  } else {
+    fileStatus = "imagen cargada con éxito.";
+  }
+  console.log(fileStatus);
 
   products.push(newProduct);
   fileManager("products", true, products)
@@ -87,7 +99,7 @@ router.post("/", (req, res) => {
       // Emitir evento de actualización de producto
       socketServer.emit("Product Update", newProduct);
       res.status(201).json({
-        msg: `Producto agregado exitosamente con id ${newProduct.id}`,
+        msg: `Producto agregado exitosamente con id ${newProduct.id}, ${fileStatus}`,
         newProduct,
       });
     })
@@ -98,7 +110,7 @@ router.post("/", (req, res) => {
 });
 
 // Modificar un producto por ID
-router.put("/:pid", (req, res) => {
+router.put("/:pid", uploader.single("thumbnail"), (req, res) => {
   const { products } = req;
   let idProducto = parseInt(req.params.pid);
   const index = products.findIndex((producto) => producto.id === idProducto);
@@ -109,8 +121,13 @@ router.put("/:pid", (req, res) => {
       .json({ msg: "No se encuentra el producto con dicho id" });
   }
 
-  const { title, description, code, price, stock, category, thumbnail } =
-    req.body;
+  let { title, description, code, price, stock, category } = req.body;
+  code = parseInt(code);
+  price = parseFloat(price);
+  stock = parseInt(stock);
+
+  const thumbnail = req.file ? `../images/${req.file.originalname}` : "";
+  console.log(thumbnail);
 
   if (
     (title !== undefined && typeof title !== "string") ||

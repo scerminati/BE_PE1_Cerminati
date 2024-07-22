@@ -1,5 +1,16 @@
 [
   {
+    "id": 1,
+    "title": "Gloomhaven",
+    "description": "Gloomhaven es un juego de combate táctico con inspiración europea en un mundo persistente. Los jugadores, como aventureros, colaboran para limpiar mazmorras, mejorar habilidades y explorar en una historia que evoluciona según sus decisiones. El juego utiliza un sistema de cartas innovador para acciones, y los jugadores deben gestionar cuidadosamente sus recursos, ya que perderán cartas permanentemente, pudiendo agotarse si no completan los desafíos a tiempo.",
+    "code": 174430,
+    "price": 159.99,
+    "status": true,
+    "stock": 7,
+    "category": "Strategy Games",
+    "thumbnail": "../images/174430.webp"
+  },
+  {
     "id": 2,
     "title": "Terraforming Mars",
     "description": "En el siglo XXIV, la humanidad comienza a terraformar el planeta Marte. En el juego Terraforming Mars, interpretas el papel de una de las corporaciones patrocinadas por el Gobierno Mundial en la Tierra, compitiendo por puntos de victoria mientras colaboras en el proceso de terraformación. Adquieres cartas de proyectos únicos para mejorar tu producción de recursos y obtener bonificaciones, equilibrando la compra y la activación de cartas. Compites por ubicaciones estratégicas en el tablero y realizas acciones durante fases de generación, avanzando en la infraestructura humana en el sistema solar. El juego concluye cuando los parámetros globales (temperatura, oxígeno y océano) alcanzan sus objetivos, y el ganador se determina por la Puntuación de Terraformación y otros puntos de victoria acumulados.",
@@ -15,7 +26,7 @@
     "title": "Spirit Island",
     "description": "Spirit Island es un juego cooperativo donde los jugadores encarnan espíritus de la tierra con poderes elementales únicos, trabajando juntos para defender su isla de invasores colonizadores. Cada turno, los jugadores eligen estratégicamente cartas de poder, pagando energía para activar habilidades que varían en velocidad y efectividad. Mientras los espíritus crecen en poder y presencia, los invasores avanzan en la isla, construyendo asentamientos y ciudades. La victoria inicial requiere destruir todas las colonias, pero a medida que aterrorizas a los invasores, la victoria se facilita. Sin embargo, la derrota puede llegar si un espíritu es destruido, la corrupción invade la isla o la baraja de invasores se agota antes de lograr la victoria. Con adversarios variados, cada uno con desafíos únicos, Spirit Island ofrece una experiencia desafiante y temática.",
     "code": 162886,
-    "price": 10000000,
+    "price": 70.99,
     "status": true,
     "stock": 11,
     "category": "Strategy Games",
@@ -26,9 +37,9 @@
     "title": "Terra Mystica",
     "description": "En la tierra de Terra Mystica habitan 14 pueblos diferentes en siete paisajes, y cada grupo está vinculado a su propio entorno hogareño. Para desarrollarse y crecer, deben transformar paisajes vecinos en sus entornos hogareños en competencia con otros grupos. Terra Mystica es un juego de información completa, sin suerte, que recompensa la planificación estratégica. Cada jugador gobierna uno de los 14 grupos, y con sutileza y habilidad, debe tratar de gobernar la mayor área posible y desarrollar las habilidades de su grupo. Hay cuatro cultos religiosos en los que se puede progresar, y cada grupo tiene habilidades especiales. Durante los turnos, los jugadores ejecutan acciones en los recursos disponibles, desarrollan edificaciones y mejoran habilidades, como terraformación y navegación. La proximidad a otros grupos ofrece ventajas, pero también dificulta la expansión en Terra Mystica.",
     "code": 120677,
-    "price": 99,
+    "price": 59.79,
     "status": true,
-    "stock": 6000,
+    "stock": 5,
     "category": "Strategy Games",
     "thumbnail": "../images/120677.webp"
   },
@@ -440,6 +451,17 @@
     "thumbnail": "../images/129622.webp"
   },
   {
+    "id": 42,
+    "title": "Saint Petersburg",
+    "description": "El 16 de mayo de 1703, el zar Pedro colocó la primera piedra del primer edificio en San Petersburgo. Rápidamente, se añadieron edificios gloriosos, siempre en expansión, para que la nobleza (que otorga puntos de victoria) desee mudarse. Pero para lograr esto, se necesitan comerciantes que puedan proporcionar los rublos necesarios, o la gloria se desvanece. La competencia tampoco está dormida y a veces puede robar una carta deseada justo debajo de tus narices. San Petersburgo cuenta con un tablero para contabilizar los puntos de victoria y establecer los cuatro tipos de cartas. Son las cartas en sí mismas las que los jugadores necesitan coleccionar. En cada ronda, con la cantidad de rondas dependiendo del número de jugadores y la aleatoriedad de la disponibilidad de cartas, los jugadores primero pagan por ARTESANOS que proporcionan dinero para compras posteriores; luego, EDIFICIOS para obtener puntos; luego, ARISTÓCRATAS, necesarios para dinero, puntos y puntuación al final del juego; y finalmente, cartas únicas de las tres categorías que otorgan beneficios mayores. Durante las primeras rondas, los jugadores nunca tienen suficiente dinero para comprar todas las cartas que desean. Durante las rondas posteriores, tienen mucho dinero, pero las cartas que les gustaría comprar pueden haber llegado y desaparecido...",
+    "code": 9217,
+    "price": 26.77,
+    "status": true,
+    "stock": 5,
+    "category": "Strategy Games",
+    "thumbnail": "../images/9217.webp"
+  },
+  {
     "id": 43,
     "title": "Lost Cities",
     "description": "Lost Cities es un juego de cartas diseñado para dos jugadores en el que los participantes buscan ganar puntos mediante la realización de expediciones arqueológicas rentables a diferentes sitios representados por cartas de colores. En cada turno, los jugadores deben jugar una carta en orden ascendente en una expedición o descartarla en el montón de descartes adecuado y luego robar una carta. Las cartas jugadas en las expediciones suman puntos según su rango, mientras que los apretones de manos actúan como multiplicadores. El juego desafía a los jugadores a equilibrar sus expediciones y estrategias para obtener la máxima puntuación, convirtiéndolo en una experiencia dinámica y táctica.",
@@ -449,6 +471,17 @@
     "stock": 3,
     "category": "Family Games",
     "thumbnail": "../images/50.webp"
+  },
+  {
+    "id": 44,
+    "title": "Arkham Horror",
+    "description": "En el año 1926, en pleno apogeo de los Rugientes Años Veinte, las flappers bailan hasta el amanecer en ahumados speakeasies, bebiendo alcohol suministrado por contrabandistas y la mafia. Es una celebración para poner fin a todas las celebraciones en medio de la resaca de la guerra para poner fin a todas las guerras. Sin embargo, una sombra oscura crece en la ciudad de Arkham. Entidades alienígenas conocidas como los Antiguos acechan en el vacío más allá del espacio y el tiempo, retorciéndose en las puertas entre mundos. Estas puertas han comenzado a abrirse y deben cerrarse antes de que los Antiguos conviertan nuestro mundo en su dominio arruinado. Solo unos pocos investigadores se oponen al Horror de Arkham. ¿Prevalecerán? Arkham Horror es un juego de aventuras cooperativo con temática en el Mito de Cthulhu de H.P. Lovecraft. Los jugadores eligen entre 16 investigadores y recorren las calles de Arkham. Antes del juego, se elige uno de los ocho Antiguos, y depende de los investigadores evitar que se abra paso a nuestro mundo. A lo largo del juego, los jugadores mejorarán a sus personajes adquiriendo habilidades, aliados, objetos, armas y hechizos. Depende de los jugadores limpiar las calles de Arkham luchando contra diferentes tipos de monstruos, pero su objetivo principal es cerrar las puertas a otras dimensiones que se están abriendo alrededor de la ciudad. Con demasiadas puertas abiertas, el Antiguo se despierta y los jugadores solo tienen una última oportunidad para salvar al mundo: ¡derrotar al Antiguo en combate!",
+    "code": 15987,
+    "price": 39.6,
+    "status": true,
+    "stock": 13,
+    "category": "Thematic Games",
+    "thumbnail": "../images/15987.webp"
   },
   {
     "id": 45,
@@ -493,38 +526,5 @@
     "stock": 6,
     "category": "Strategy Games",
     "thumbnail": "../images/297030.webp"
-  },
-  {
-    "id": 49,
-    "title": "0909",
-    "description": "09",
-    "code": 9,
-    "price": 9,
-    "status": true,
-    "stock": 9,
-    "category": "09",
-    "thumbnail": ""
-  },
-  {
-    "id": 50,
-    "title": "9898",
-    "description": "98",
-    "code": 98,
-    "price": 9,
-    "status": true,
-    "stock": 89,
-    "category": "8",
-    "thumbnail": ""
-  },
-  {
-    "id": 52,
-    "title": "0909",
-    "description": "09",
-    "code": 9,
-    "price": 1,
-    "status": true,
-    "stock": 9,
-    "category": "09",
-    "thumbnail": ""
   }
 ]

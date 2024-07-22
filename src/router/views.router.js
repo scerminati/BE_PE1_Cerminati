@@ -1,5 +1,5 @@
 import express from "express";
-import { fileManager } from "../utils/filemanager.js";
+import { fileManager } from "../utils/utils.js";
 
 const router = express.Router();
 
