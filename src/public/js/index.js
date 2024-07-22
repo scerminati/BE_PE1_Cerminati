@@ -60,6 +60,39 @@ document.addEventListener("DOMContentLoaded", function () {
   productForm.addEventListener("submit", async (event) => {
     handleSubmit(event);
   });
+  //Función handleSubmit, me permite linkear con modificar un producto
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(productForm);
+
+    // Validar el formulario HTML5
+    if (!productForm.checkValidity()) {
+      productForm.reportValidity();
+      return;
+    }
+    try {
+      const response = await fetch("/api/products", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const newProduct = await response.json();
+
+      // Emitir evento de actualización de producto a través de Socket.io
+      socket.emit("Product Update", newProduct.newProduct);
+
+      // Resetear el formulario
+      thumbnailPreview.src = "./images/no-image.jpg";
+      productForm.reset();
+    } catch (error) {
+      console.error("Error al agregar el producto:", error.message);
+    }
+  }
 
   // Evento para eliminar un producto
   document.addEventListener("click", async (event) => {
@@ -110,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (productData.productoEncontrado.thumbnail) {
           thumbnailPreview.src = productData.productoEncontrado.thumbnail;
         } else {
-          thumbnailPreview.src = ""; // Puedes establecer una imagen por defecto o un mensaje
+          thumbnailPreview.src = "./images/no-image.jpg";
         }
 
         // Establecer el ID del producto en un campo oculto
@@ -130,8 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-
-  // Evento para actualizar un producto
+  // Función handleUpdate, me permite linkear con agregar un producto luego de haberse enviado la edición.
   async function handleUpdate(event) {
     event.preventDefault();
 
@@ -166,43 +198,11 @@ document.addEventListener("DOMContentLoaded", function () {
       submitBtn.innerText = "Enviar";
       submitBtn.removeEventListener("click", handleUpdate);
       submitBtn.addEventListener("click", handleSubmit);
-      thumbnailPreview.src = "";
+      thumbnailPreview.src = "./images/no-image.jpg";
       resetBtn.style.display = "inline";
       tituloHTML.innerHTML = `Añadir un producto`;
     } catch (error) {
       console.error("Error al actualizar el producto:", error.message);
-    }
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(productForm);
-
-    // Validar el formulario HTML5
-    if (!productForm.checkValidity()) {
-      productForm.reportValidity();
-      return;
-    }
-    try {
-      const response = await fetch("/api/products", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const newProduct = await response.json();
-
-      // Emitir evento de actualización de producto a través de Socket.io
-      socket.emit("Product Update", newProduct.newProduct);
-
-      // Resetear el formulario
-      productForm.reset();
-    } catch (error) {
-      console.error("Error al agregar el producto:", error.message);
     }
   }
 
@@ -215,4 +215,18 @@ document.addEventListener("DOMContentLoaded", function () {
         </p>
       `;
   }
+
+  // Evento de vista previa de la imagen
+  thumbnailInput.addEventListener("change", function () {
+    const file = thumbnailInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        thumbnailPreview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      thumbnailPreview.src = "./images/no-image.png";
+    }
+  });
 });

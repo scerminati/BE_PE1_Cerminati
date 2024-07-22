@@ -67,4 +67,19 @@ const storage = multer.diskStorage({
   },
 });
 
-export const uploader = multer({ storage });
+const fileFilter = (req, file, cb) => {
+  // Validar que el archivo sea una imagen
+  if (file.mimetype.startsWith("image/")) {
+    cb(null, true);
+  } else {
+    cb(
+      new Error("Tipo de archivo no permitido. Solo se permiten imágenes."),
+      false
+    );
+  }
+};
+
+export const uploader = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+});
