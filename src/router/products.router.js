@@ -115,9 +115,9 @@ router.put("/:pid", (req, res) => {
   if (
     (title !== undefined && typeof title !== "string") ||
     (description !== undefined && typeof description !== "string") ||
-    (code !== undefined && typeof code !== "number") ||
-    (price !== undefined && typeof price !== "number") ||
-    (stock !== undefined && typeof stock !== "number") ||
+    (code !== undefined && (typeof code !== "number" || code < 1)) ||
+    (price !== undefined && (typeof price !== "number" || price < 1)) ||
+    (stock !== undefined && (typeof stock !== "number" || stock < 0)) ||
     (category !== undefined && typeof category !== "string")
   ) {
     return res.status(400).json({
