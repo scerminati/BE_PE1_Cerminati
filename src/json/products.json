@@ -1,5 +1,124 @@
 [
   {
+    "id": 2,
+    "title": "Terraforming Mars",
+    "description": "En el siglo XXIV, la humanidad comienza a terraformar el planeta Marte. En el juego Terraforming Mars, interpretas el papel de una de las corporaciones patrocinadas por el Gobierno Mundial en la Tierra, compitiendo por puntos de victoria mientras colaboras en el proceso de terraformación. Adquieres cartas de proyectos únicos para mejorar tu producción de recursos y obtener bonificaciones, equilibrando la compra y la activación de cartas. Compites por ubicaciones estratégicas en el tablero y realizas acciones durante fases de generación, avanzando en la infraestructura humana en el sistema solar. El juego concluye cuando los parámetros globales (temperatura, oxígeno y océano) alcanzan sus objetivos, y el ganador se determina por la Puntuación de Terraformación y otros puntos de victoria acumulados.",
+    "code": 167791,
+    "price": 65.9,
+    "status": true,
+    "stock": 20,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/167791.webp"
+  },
+  {
+    "id": 3,
+    "title": "Spirit Island",
+    "description": "Spirit Island es un juego cooperativo donde los jugadores encarnan espíritus de la tierra con poderes elementales únicos, trabajando juntos para defender su isla de invasores colonizadores. Cada turno, los jugadores eligen estratégicamente cartas de poder, pagando energía para activar habilidades que varían en velocidad y efectividad. Mientras los espíritus crecen en poder y presencia, los invasores avanzan en la isla, construyendo asentamientos y ciudades. La victoria inicial requiere destruir todas las colonias, pero a medida que aterrorizas a los invasores, la victoria se facilita. Sin embargo, la derrota puede llegar si un espíritu es destruido, la corrupción invade la isla o la baraja de invasores se agota antes de lograr la victoria. Con adversarios variados, cada uno con desafíos únicos, Spirit Island ofrece una experiencia desafiante y temática.",
+    "code": 162886,
+    "price": 70.99,
+    "status": true,
+    "stock": 4,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/162886.webp"
+  },
+  {
+    "id": 5,
+    "title": "Wingspan",
+    "description": "Wingspan es un juego de mesa competitivo de construcción de motores impulsado por cartas, con un peso medio, desarrollado por Stonemaier Games y diseñado por Elizabeth Hargrave. Con más de 170 ilustraciones de aves de Beth Sobel, Natalia Rojas y Ana María Martínez, los jugadores, como entusiastas de las aves, buscan descubrir y atraer las mejores aves a sus reservas naturales. Cada ave permite crear potentes combinaciones en uno de los hábitats del jugador, centrándose en aspectos clave como obtener fichas de comida mediante dados en una torre de dados, poner huevos con miniaturas de huevos de colores y jugar cartas únicas de aves. El ganador es el jugador con más puntos después de 4 rondas.",
+    "code": 266192,
+    "price": 47.69,
+    "status": true,
+    "stock": 6,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/266192.webp"
+  },
+  {
+    "id": 6,
+    "title": "Puerto Rico",
+    "description": "En Puerto Rico, los jugadores asumen el papel de gobernadores coloniales compitiendo por puntos de victoria mediante el envío de mercancías a Europa o la construcción de edificios. Cada jugador gestiona su propio tablero con ciudad, plantaciones y recursos, compartiendo barcos y una casa de comercio. Durante cada ronda, los jugadores eligen roles, como Comerciante o Constructor, realizando acciones asociadas, y el jugador que selecciona el rol obtiene un pequeño beneficio. El juego utiliza un mecanismo de orden de fase variable, y los jugadores ganan puntos por edificios, envíos y edificios grandes. Puerto Rico incorpora estrategia y toma de decisiones en un entorno colonial, con expansiones disponibles para agregar variedad al juego.",
+    "code": 3076,
+    "price": 124.93,
+    "status": true,
+    "stock": 6,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/3076.webp"
+  },
+  {
+    "id": 7,
+    "title": "Agricola",
+    "description": "En Agricola, te conviertes en un granjero que vive en una cabaña de madera con tu cónyuge y poco más. En cada turno, puedes realizar solo dos acciones, una para ti y otra para tu cónyuge, eligiendo entre diversas posibilidades en la granja, como recolectar arcilla, madera o piedra, construir cercas, entre otras. La complejidad del juego varía según el uso de dos tipos principales de cartas: Mejoras Menores y Ocupaciones. En la versión para principiantes, llamada Variante Familiar, estas cartas no se utilizan, pero en el juego avanzado, hay tres niveles de cartas para ambos tipos: Básico, Interactivo y Complejo. Agricola es un juego por turnos con 14 rondas y 6 etapas, con una cosecha al final de cada etapa. Los jugadores deben gestionar recursos, expandir sus casas, alimentar a su familia y planificar estrategias basadas en cartas de ocupación y mejoras menores. La toma de decisiones estratégicas y la adaptabilidad a las acciones de los oponentes son clave para el éxito en Agricola.",
+    "code": 31260,
+    "price": 58.95,
+    "status": true,
+    "stock": 8,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/31260.webp"
+  },
+  {
+    "id": 8,
+    "title": "Power Grid",
+    "description": "Power Grid es la versión actualizada del juego de crayones Funkenschlag, diseñado por Friedemann Friese. A diferencia de la edición original, Power Grid elimina el uso de crayones en la construcción de redes, pero mantiene el dinámico mercado de commodities similar a Crude: The Oil Game y una ronda de subastas intensa que recuerda a The Princes of Florence. El objetivo del juego es suministrar la mayor cantidad de ciudades con energía cuando la red de un jugador alcanza un tamaño predeterminado. En esta nueva edición, los jugadores establecen rutas entre ciudades y compiten en subastas por la compra de plantas de energía para abastecerlas. La estrategia se centra en la gestión eficiente de recursos como carbón, petróleo, basura y uranio, mientras se busca mejorar las plantas para lograr máxima eficiencia y expandir la red a costos competitivos. La constante toma de decisiones estratégicas y las dinámicas subastas hacen de Power Grid un juego desafiante y cautivador.",
+    "code": 2651,
+    "price": 44.95,
+    "status": true,
+    "stock": 15,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/2651.webp"
+  },
+  {
+    "id": 9,
+    "title": "Tzolk'in: The Mayan Calendar",
+    "description": "Tzolkin: The Mayan Calendar introduce un innovador mecanismo de juego mediante la colocación dinámica de trabajadores. En este juego, representando diversas tribus mayas, los jugadores sitúan a sus trabajadores en grandes engranajes interconectados, y a medida que los engranajes giran, los trabajadores se desplazan a diferentes lugares de acción. Durante un turno, los jugadores pueden colocar trabajadores en los lugares visibles más bajos de los engranajes o recoger trabajadores para realizar acciones específicas según su posición. La gestión del tiempo es crucial, ya que las acciones en lugares más avanzados son más valiosas, pero los jugadores no pueden omitir sus turnos y deben equilibrar estratégicamente sus decisiones. El juego culmina después de una revolución completa del engranaje central Tzolkin, ofreciendo múltiples caminos hacia la victoria, como complacer a los dioses con calaveras de cristal o la construcción de templos, brindando a los jugadores una experiencia rica y desafiante.",
+    "code": 126163,
+    "price": 58.91,
+    "status": true,
+    "stock": 11,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/126163.webp"
+  },
+  {
+    "id": 10,
+    "title": "The Crew: The Quest for Planet Nine",
+    "description": "En el juego cooperativo de bazas, The Crew: La Búsqueda de Planeta Nueve, los jugadores encarnan astronautas en una aventura espacial llena de incertidumbres sobre el planeta desconocido. Con más de 50 misiones emocionantes, el desafío radica en superar el juego al cumplir con tareas individuales comunes para cada jugador. La comunicación se vuelve esencial en el equipo para enfrentar las variadas dificultades, pero en el espacio, resulta más complicada de lo esperado. Cada misión aumenta la dificultad, y después de cada una, el juego se puede pausar y reanudar más tarde. En lugar de la cantidad de bazas, lo que cuenta en cada misión son las bazas correctas en el momento adecuado. El equipo logra completar una misión solo si cada jugador tiene éxito en sus tareas individuales. El juego ofrece 50 misiones, con tres misiones adicionales publicadas en la revista spielbox 2/2020.",
+    "code": 284083,
+    "price": 14.99,
+    "status": true,
+    "stock": 13,
+    "category": [
+      "Family Games",
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/284083.webp"
+  },
+  {
+    "id": 11,
+    "title": "Le Havre",
+    "description": "En Le Havre, cada turno de un jugador se divide en dos partes: en primer lugar, distribuir los bienes recién suministrados en los espacios de oferta y, luego, tomar una acción. Durante la acción, los jugadores pueden elegir tomar todos los bienes de un tipo de un espacio de oferta o utilizar uno de los edificios disponibles. Las acciones de construcción permiten mejorar bienes, venderlos o utilizarlos para construir edificios y barcos. Estos edificios representan tanto una inversión como una fuente de ingresos, ya que se debe pagar una tarifa para usar edificios ajenos. Por otro lado, los barcos son esenciales para proporcionar alimentos y alimentar a los trabajadores. Después de siete turnos, concluye la ronda con una cosecha que puede multiplicar el ganado y el grano de los jugadores, quienes deben asegurarse de alimentar a sus trabajadores. Tras un número predeterminado de rondas, cada jugador realiza una acción final, sumando el valor de sus edificios y barcos a sus reservas de dinero para determinar al ganador, quien haya acumulado la mayor fortuna.",
+    "code": 35677,
+    "price": 70.99,
+    "status": true,
+    "stock": 20,
+    "category": [
+      "Strategy Games"
+    ],
+    "thumbnail": "../images/35677.webp"
+  },
+  {
     "id": 12,
     "title": "Azul",
     "description": "Azul nos sumerge en la fascinante historia de los azulejos portugueses, inspirados inicialmente por los moros y adoptados con fervor por el rey Manuel I después de quedar cautivado por la belleza de la Alhambra. Como artistas en colocación de azulejos, los jugadores asumen el desafío de embellecer los muros del Palacio Real de Évora. En este juego estratégico, los participantes seleccionan hábilmente azulejos de colores de los proveedores y los disponen en sus tableros de jugador, puntuando según la disposición de estos en la decoración del palacio. Los patrones específicos y la finalización de conjuntos brindan puntos adicionales, mientras que el despilfarro de suministros afecta negativamente la puntuación. Al final, el jugador que haya acumulado la mayor cantidad de puntos se consagra como el ganador, celebrando su habilidad para crear un magnífico mosaico en el Palacio Real de Évora.",
@@ -488,101 +607,46 @@
   },
   {
     "id": 49,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
+    "title": "0",
+    "description": "0",
+    "code": 1,
+    "price": 1,
     "status": false,
     "stock": 0,
-    "category": "varios",
-    "thumbnail": 6854
+    "category": "0",
+    "thumbnail": {}
+  },
+  {
+    "id": 50,
+    "title": "88",
+    "description": "8",
+    "code": 8,
+    "price": 8,
+    "status": true,
+    "stock": 8,
+    "category": "8",
+    "thumbnail": {}
   },
   {
     "id": 51,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 6854
+    "title": "Terra Mystica",
+    "description": "En la tierra de Terra Mystica habitan 14 pueblos diferentes en siete paisajes, y cada grupo está vinculado a su propio entorno hogareño. Para desarrollarse y crecer, deben transformar paisajes vecinos en sus entornos hogareños en competencia con otros grupos. Terra Mystica es un juego de información completa, sin suerte, que recompensa la planificación estratégica. Cada jugador gobierna uno de los 14 grupos, y con sutileza y habilidad, debe tratar de gobernar la mayor área posible y desarrollar las habilidades de su grupo. Hay cuatro cultos religiosos en los que se puede progresar, y cada grupo tiene habilidades especiales. Durante los turnos, los jugadores ejecutan acciones en los recursos disponibles, desarrollan edificaciones y mejoran habilidades, como terraformación y navegación. La proximidad a otros grupos ofrece ventajas, pero también dificulta la expansión en Terra Mystica.",
+    "code": 120677,
+    "price": 59.79,
+    "status": true,
+    "stock": 3,
+    "category": "Strategy Games",
+    "thumbnail": {}
   },
   {
     "id": 52,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 33,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
-    "id": 53,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 66,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
-    "id": 54,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 66,
-    "status": false,
-    "stock": 0,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
-    "id": 55,
-    "title": "Prueba con id 51",
-    "description": "hola",
-    "code": 123,
-    "price": 66,
+    "title": "00",
+    "description": "1",
+    "code": 1,
+    "price": 1.23,
     "status": true,
-    "stock": 242432,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
-    "id": 56,
-    "title": "qadsdsad",
-    "description": "hola",
-    "code": 123,
-    "price": 66,
-    "status": true,
-    "stock": 242432,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
-    "id": 57,
-    "title": "qadsdsad",
-    "description": "hola",
-    "code": 123,
-    "price": 66,
-    "status": true,
-    "stock": 242432,
-    "category": "varios",
-    "thumbnail": 6854
-  },
-  {
-    "id": 58,
-    "title": "pupita",
-    "description": "hola",
-    "code": 123,
-    "price": 66,
-    "status": true,
-    "stock": 242432,
-    "category": "varios",
-    "thumbnail": 6854
+    "stock": 1,
+    "category": "1",
+    "thumbnail": {}
   }
 ]
