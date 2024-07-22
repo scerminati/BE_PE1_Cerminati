@@ -97,8 +97,6 @@ router.post("/", (req, res) => {
     });
 });
 
-
-
 // Modificar un producto por ID
 router.put("/:pid", (req, res) => {
   const { products } = req;

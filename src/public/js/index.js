@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Evento para enviar el formulario de producto
   productForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    console.log("entro en post");
 
     const formData = new FormData(productForm);
     const title = formData.get("title");
@@ -72,7 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const price = parseFloat(formData.get("price"));
     const stock = parseInt(formData.get("stock"));
     const category = formData.get("category");
-    const thumbnail = formData.get("thumbnail");
+    let thumbnail = formData.get("thumbnail").name;
+
+    if (thumbnail === null || thumbnail === undefined || thumbnail === "") {
+      thumbnail = ""; // Asignar una cadena vacía si thumbnail es vacío
+    } else {
+      thumbnail = `../images/${thumbnail}`;
+    }
 
     try {
       const response = await fetch("/api/products", {

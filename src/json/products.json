@@ -648,5 +648,104 @@
     "stock": 1,
     "category": "1",
     "thumbnail": {}
+  },
+  {
+    "id": 53,
+    "title": "holi",
+    "description": "90",
+    "code": 90,
+    "price": 90,
+    "status": true,
+    "stock": 90,
+    "category": "90",
+    "thumbnail": {}
+  },
+  {
+    "id": 54,
+    "title": "00000",
+    "description": "0",
+    "code": 33,
+    "price": 2,
+    "status": true,
+    "stock": 3,
+    "category": "123",
+    "thumbnail": {}
+  },
+  {
+    "id": 55,
+    "title": "9",
+    "description": "99",
+    "code": 9,
+    "price": 99,
+    "status": true,
+    "stock": 999,
+    "category": "9",
+    "thumbnail": {}
+  },
+  {
+    "id": 56,
+    "title": "999",
+    "description": "9",
+    "code": 9,
+    "price": 9,
+    "status": true,
+    "stock": 9,
+    "category": "9",
+    "thumbnail": {}
+  },
+  {
+    "id": 57,
+    "title": "888",
+    "description": "8",
+    "code": 8,
+    "price": 8,
+    "status": true,
+    "stock": 8,
+    "category": "8",
+    "thumbnail": {}
+  },
+  {
+    "id": 58,
+    "title": "09",
+    "description": "09",
+    "code": 1,
+    "price": 9,
+    "status": true,
+    "stock": 9,
+    "category": "09",
+    "thumbnail": {}
+  },
+  {
+    "id": 59,
+    "title": "999",
+    "description": "9",
+    "code": 9,
+    "price": 9,
+    "status": true,
+    "stock": 9,
+    "category": "9",
+    "thumbnail": "20230908.jpg"
+  },
+  {
+    "id": 60,
+    "title": "777",
+    "description": "7",
+    "code": 7,
+    "price": 7,
+    "status": true,
+    "stock": 7,
+    "category": "7",
+    "thumbnail": "../images/20230925.jpg"
+  },
+  {
+    "id": 61,
+    "title": "66",
+    "description": "6",
+    "code": 6,
+    "price": 6,
+    "status": true,
+    "stock": 6,
+    "category": "6",
+    "thumbnail": ""
   }
 ]
